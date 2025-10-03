@@ -1,0 +1,284 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Equipment - JNEC Online Fitness Gym</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="../CSS/equipment.css">
+</head>
+<body>
+    <button class="menu-toggle" id="menu-toggle">
+        <i class="fas fa-bars"></i>
+    </button>
+
+    <!-- Overlay for mobile -->
+    <div class="sidebar-overlay" id="sidebar-overlay"></div>
+    
+    <!-- Sidebar -->
+    <aside class="sidebar" id="sidebar">
+        <div class="logo-section">
+            <img src="../PHOTOS/LOGO.png" alt="logo" class="logo-icon">
+            <div class="logo-text">
+                <h2>JNEC Fitness</h2>
+                <p>Online Gym</p>
+            </div>
+        </div>
+        <ul class="nav-menu">
+            <li class="nav-item">
+                <a href="../HTML/Dashboard.html" class="nav-link">
+                    <span class="nav-icon"><i class="fas fa-th-large"></i></span>
+                    <span>Dashboard</span>
+                </a>
+            </li>
+            <li class="nav-item">
+                <a href="../HTML/membership.html" class="nav-link">
+                    <span class="nav-icon"><i class="fas fa-id-card"></i></span>
+                    <span>My Membership</span>
+                </a>
+            </li>
+            <li class="nav-item">
+                <a href="equipment.html" class="nav-link active">
+                    <span class="nav-icon"><i class="fas fa-dumbbell"></i></span>
+                    <span>Equipment</span>
+                </a>
+            </li>
+            <li class="nav-item">
+                <a href="myschedule.html" class="nav-link">
+                    <span class="nav-icon"><i class="fas fa-calendar-alt"></i></span>
+                    <span>My Schedule</span>
+                </a>
+            </li>
+            <li class="nav-item">
+                <a href="feedback.html" class="nav-link">
+                    <span class="nav-icon"><i class="far fa-comment"></i></span>
+                    <span>Feedback</span>
+                </a>
+            </li>
+            <li class="nav-item">
+                <a href="setting.html" class="nav-link">
+                    <span class="nav-icon"><i class="fas fa-cog"></i></span>
+                    <span>Settings</span>
+                </a>
+            </li>
+        </ul>
+    </aside>
+
+    <!-- Top Bar -->
+    <header class="topbar">
+        <div class="page-title">
+            <h1>Equipment</h1>
+            <p class="page-subtitle">Browse and explore all available gym equipment</p>
+        </div>
+        <div class="topbar-actions">
+            <div class="search-box">
+                <span class="search-icon"><i class="fas fa-search"></i></span>
+                <input type="text" id="search-input" placeholder="Search equipment...">
+            </div>
+            <a href="../HTML/notification.html" class="icon-button">
+                <i class="far fa-bell"></i>
+                <span class="notification-badge"></span>
+            </a>
+            <div class="user-profile">
+                <div class="user-avatar">JL</div>
+                <span class="user-name">Jigme Lhadon</span>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="main-content">
+        <!-- Filter Section -->
+        <div class="filter-section">
+            <div class="filter-buttons">
+                <button class="filter-btn active" data-category="all">All Equipment</button>
+                <button class="filter-btn" data-category="cardio">Cardio</button>
+                <button class="filter-btn" data-category="strength">Strength</button>
+                <button class="filter-btn" data-category="free-weights">Free Weights</button>
+                <button class="filter-btn" data-category="functional">Functional</button>
+            </div>
+            <!-- <div class="view-toggle">
+                <button class="view-btn active" data-view="grid">
+                    <i class="fas fa-th"></i> Grid
+                </button>
+                <button class="view-btn" data-view="list">
+                    <i class="fas fa-list"></i> List
+                </button>
+            </div> -->
+        </div>
+
+        <!-- Equipment Grid -->
+        <div class="equipment-grid" id="equipment-grid">
+            <!-- Bench Press -->
+            <div class="equipment-item" data-category="strength" data-id="bench-press">
+                <div class="equipment-card">
+                    <div class="equipment-image-container">
+                        <img src="../PHOTOS/benchpress.jpg" class="equipment-img" alt="Bench Press">
+                    </div>
+                    <div class="equipment-info">
+                        <h3 class="equipment-name">Bench Press</h3>
+                        <p class="equipment-description">Chest & Triceps</p>
+                        <span class="equipment-category-badge strength">Strength</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Barbells -->
+            <div class="equipment-item" data-category="free-weights" data-id="barbells">
+                <div class="equipment-card">
+                    <div class="equipment-image-container">
+                        <img src="../PHOTOS/equ.jpg" class="equipment-img" alt="Barbells">
+                    </div>
+                    <div class="equipment-info">
+                        <h3 class="equipment-name">Barbells</h3>
+                        <p class="equipment-description">Free Weights</p>
+                        <span class="equipment-category-badge free-weights">Free Weights</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Abdominal Bench -->
+            <div class="equipment-item" data-category="strength" data-id="abdominal-bench">
+                <div class="equipment-card">
+                    <div class="equipment-image-container">
+                        <img src="../PHOTOS/Abdominal Bench.png" class="equipment-img" alt="Abdominal Bench">
+                    </div>
+                    <div class="equipment-info">
+                        <h3 class="equipment-name">Abdominal Bench</h3>
+                        <p class="equipment-description">Core Training</p>
+                        <span class="equipment-category-badge strength">Strength</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Leg Press -->
+            <div class="equipment-item" data-category="strength" data-id="leg-press">
+                <div class="equipment-card">
+                    <div class="equipment-image-container">
+                        <img src="../PHOTOS/leg press.png" class="equipment-img" alt="Leg Press">
+                    </div>
+                    <div class="equipment-info">
+                        <h3 class="equipment-name">Leg Press Machine</h3>
+                        <p class="equipment-description">Lower Body</p>
+                        <span class="equipment-category-badge strength">Strength</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Smith Machine -->
+            <div class="equipment-item" data-category="strength" data-id="smith-machine">
+                <div class="equipment-card">
+                    <div class="equipment-image-container">
+                        <img src="../PHOTOS/smith machine.png" class="equipment-img" alt="Smith Machine">
+                    </div>
+                    <div class="equipment-info">
+                        <h3 class="equipment-name">Smith Machine</h3>
+                        <p class="equipment-description">Guided Training</p>
+                        <span class="equipment-category-badge strength">Strength</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Dumbbells -->
+            <div class="equipment-item" data-category="free-weights" data-id="dumbbells">
+                <div class="equipment-card">
+                    <div class="equipment-image-container">
+                        <img src="../PHOTOS/Dumbbells.png" class="equipment-img" alt="Dumbbells">
+                    </div>
+                    <div class="equipment-info">
+                        <h3 class="equipment-name">Dumbbells</h3>
+                        <p class="equipment-description">Free Weights</p>
+                        <span class="equipment-category-badge free-weights">Free Weights</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Pulldown Machine -->
+            <div class="equipment-item" data-category="strength" data-id="pulldown-machine">
+                <div class="equipment-card">
+                    <div class="equipment-image-container">
+                        <img src="../PHOTOS/pulldown mechine.png" class="equipment-img" alt="Pulldown Machine">
+                    </div>
+                    <div class="equipment-info">
+                        <h3 class="equipment-name">Pulldown Machine</h3>
+                        <p class="equipment-description">Back & Biceps</p>
+                        <span class="equipment-category-badge strength">Strength</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Punching Bag -->
+            <div class="equipment-item" data-category="cardio" data-id="punching-bag">
+                <div class="equipment-card">
+                    <div class="equipment-image-container">
+                        <img src="../PHOTOS/punching bag.png" class="equipment-img" alt="Punching Bag">
+                    </div>
+                    <div class="equipment-info">
+                        <h3 class="equipment-name">Punching Bag</h3>
+                        <p class="equipment-description">Cardio & Strength</p>
+                        <span class="equipment-category-badge cardio">Cardio</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Kettlebells -->
+            <div class="equipment-item" data-category="functional" data-id="kettlebells">
+                <div class="equipment-card">
+                    <div class="equipment-image-container">
+                        <img src="../PHOTOS/kettlebells.png" class="equipment-img" alt="Kettlebells">
+                    </div>
+                    <div class="equipment-info">
+                        <h3 class="equipment-name">Kettlebells</h3>
+                        <p class="equipment-description">Functional Training</p>
+                        <span class="equipment-category-badge functional">Functional</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Treadmill -->
+            <div class="equipment-item" data-category="cardio" data-id="treadmill">
+                <div class="equipment-card">
+                    <div class="equipment-image-container">
+                        <img src="../PHOTOS/Treadmill.png" class="equipment-img" alt="Treadmill">
+                    </div>
+                    <div class="equipment-info">
+                        <h3 class="equipment-name">Treadmill</h3>
+                        <p class="equipment-description">Cardio Equipment</p>
+                        <span class="equipment-category-badge cardio">Cardio</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Cable Machine -->
+            <div class="equipment-item" data-category="strength" data-id="cable-machine">
+                <div class="equipment-card">
+                    <div class="equipment-image-container">
+                        <img src="../PHOTOS/cable machine.png" class="equipment-img" alt="Cable Machine">
+                    </div>
+                    <div class="equipment-info">
+                        <h3 class="equipment-name">Cable Machine</h3>
+                        <p class="equipment-description">Versatile Training</p>
+                        <span class="equipment-category-badge strength">Strength</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Rowing Machine -->
+            <div class="equipment-item" data-category="cardio" data-id="rowing-machine">
+                <div class="equipment-card">
+                    <div class="equipment-image-container">
+                        <img src="../PHOTOS/Rowing Machine.png" class="equipment-img" alt="Rowing Machine">
+                    </div>
+                    <div class="equipment-info">
+                        <h3 class="equipment-name">Rowing Machine</h3>
+                        <p class="equipment-description">Full Body Cardio</p>
+                        <span class="equipment-category-badge cardio">Cardio</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <script src="../JS/equipment.js"></script>
+</body>
+</html>
