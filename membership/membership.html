@@ -1,0 +1,346 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Membership - JNEC Online Fitness Gym</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="../CSS/membership.css">
+</head>
+<body>
+    <button class="menu-toggle" id="menu-toggle">
+        <i class="fas fa-bars"></i>
+    </button>
+
+    <!-- Overlay for mobile -->
+    <div class="sidebar-overlay" id="sidebar-overlay"></div>
+    
+    <!-- Sidebar -->
+    <aside class="sidebar" id="sidebar">
+        <div class="logo-section">
+            <img src="../PHOTOS/LOGO.png" alt="logo" class="logo-icon">
+            <div class="logo-text">
+                <h2>JNEC Fitness</h2>
+                <p>Online Gym</p>
+            </div>
+        </div>
+        <ul class="nav-menu">
+            <li class="nav-item">
+                <a href="Dashboard.html" class="nav-link">
+                    <i class="fas fa-th-large"></i>
+                    <span>Dashboard</span>
+                </a>
+            </li>
+            <li class="nav-item">
+                <a href="membership.html" class="nav-link active">
+                    <i class="fas fa-id-card"></i>
+                    <span>My Membership</span>
+                </a>
+            </li>
+            <li class="nav-item">
+                <a href="equipment.html" class="nav-link">
+                    <i class="fas fa-dumbbell"></i>
+                    <span>Equipment</span>
+                </a>
+            </li>
+            <li class="nav-item">
+                <a href="myreservation.html" class="nav-link">
+                    <i class="far fa-calendar-alt"></i>
+                    <span>My Schedule</span>
+                </a>
+            </li>
+            <li class="nav-item">
+                <a href="feedback.html" class="nav-link">
+                    <i class="far fa-comment"></i>
+                    <span>Feedback</span>
+                </a>
+            </li>
+            <li class="nav-item">
+                <a href="setting.html" class="nav-link">
+                    <i class="fas fa-cog"></i>
+                    <span>Settings</span>
+                </a>
+            </li>
+        </ul>
+    </aside>
+
+    <!-- Top Bar -->
+    <header class="topbar">
+        <div class="page-title">
+            <h1>My Membership</h1>
+            <p class="page-subtitle">Manage your gym membership</p>
+        </div>
+        <div class="topbar-actions">
+            <a href="notification.html" class="icon-button">
+                <i class="far fa-bell"></i>
+                <span class="notification-badge"></span>
+            </a>
+            <div class="user-profile">
+                <div class="user-avatar">JD</div>
+                <span class="user-name">John Doe</span>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="main-content">
+        <!-- Membership Status Banner -->
+        <div class="membership-banner active" id="membership-banner">
+            <div class="banner-left">
+                <div class="status-icon">
+                    <i class="fas fa-check-circle"></i>
+                </div>
+                <div class="banner-content">
+                    <h2>Active Membership</h2>
+                    <p>You have full access to all gym equipment and facilities</p>
+                </div>
+            </div>
+            <div class="banner-right">
+                <div class="expiry-info">
+                    <span class="expiry-label">Expires on</span>
+                    <span class="expiry-date" id="expiry-date">November 30, 2025</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- Main Grid -->
+        <div class="membership-grid">
+            <!-- Current Membership Card -->
+            <div class="card membership-card">
+                <div class="card-header">
+                    <h2 class="card-title">Current Membership</h2>
+                    <span class="badge active-badge">ACTIVE</span>
+                </div>
+                <div class="membership-details">
+                    <div class="detail-row">
+                        <span class="detail-icon">
+                            <i class="fas fa-credit-card"></i>
+                        </span>
+                        <div class="detail-content">
+                            <span class="detail-label">Membership Type</span>
+                            <span class="detail-value">Monthly Subscription</span>
+                        </div>
+                    </div>
+                    <div class="detail-row">
+                        <span class="detail-icon">
+                            <i class="fas fa-money-bill-wave"></i>
+                        </span>
+                        <div class="detail-content">
+                            <span class="detail-label">Monthly Fee</span>
+                            <span class="detail-value">Nu. 300</span>
+                        </div>
+                    </div>
+                    <div class="detail-row">
+                        <span class="detail-icon">
+                            <i class="fas fa-calendar-check"></i>
+                        </span>
+                        <div class="detail-content">
+                            <span class="detail-label">Start Date</span>
+                            <span class="detail-value" id="start-date">October 1, 2025</span>
+                        </div>
+                    </div>
+                    <div class="detail-row">
+                        <span class="detail-icon">
+                            <i class="fas fa-calendar-times"></i>
+                        </span>
+                        <div class="detail-content">
+                            <span class="detail-label">End Date</span>
+                            <span class="detail-value" id="end-date">November 30, 2025</span>
+                        </div>
+                    </div>
+                    <div class="detail-row">
+                        <span class="detail-icon">
+                            <i class="fas fa-hourglass-half"></i>
+                        </span>
+                        <div class="detail-content">
+                            <span class="detail-label">Days Remaining</span>
+                            <span class="detail-value days-remaining" id="days-remaining">31 days</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="card-actions">
+                    <button class="btn btn-primary" id="renew-btn">
+                        <i class="fas fa-sync-alt"></i>
+                        Renew Membership
+                    </button>
+                    <button class="btn btn-secondary" id="cancel-btn">
+                        <i class="fas fa-times"></i>
+                        Cancel Membership
+                    </button>
+                </div>
+            </div>
+
+            <!-- Access & Benefits -->
+            <div class="card benefits-card">
+                <div class="card-header">
+                    <h2 class="card-title">Your Access & Benefits</h2>
+                </div>
+                <div class="benefits-list">
+                    <div class="benefit-item">
+                        <div class="benefit-icon">
+                            <i class="fas fa-check-circle"></i>
+                        </div>
+                        <div class="benefit-content">
+                            <h3>Unlimited Equipment Access</h3>
+                            <p>Access to all 12 equipment items anytime</p>
+                        </div>
+                    </div>
+                    <div class="benefit-item">
+                        <div class="benefit-icon">
+                            <i class="fas fa-clock"></i>
+                        </div>
+                        <div class="benefit-content">
+                            <h3>Flexible Scheduling</h3>
+                            <p>Book gym with your preference</p>
+                        </div>
+                    </div>
+                    <div class="benefit-item">
+                        <div class="benefit-icon">
+                            <i class="fas fa-bell"></i>
+                        </div>
+                        <div class="benefit-content">
+                            <h3>Notifications</h3>
+                            <p>Get reminders and updates on your bookings</p>
+                        </div>
+                    </div>
+                    <div class="benefit-item">
+                        <div class="benefit-icon">
+                            <i class="fas fa-info-circle"></i>
+                        </div>
+                        <div class="benefit-content">
+                            <h3>Real Time Information</h3>
+                            <p>View available slots online</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Renewal Options -->
+        <div class="card renewal-card">
+            <div class="card-header">
+                <h2 class="card-title">Renewal Options</h2>
+            </div>
+            <div class="renewal-options">
+                <div class="renewal-option">
+                    <div class="option-header">
+                        <h3>1 Month</h3>
+                        <div class="option-price">
+                            <span class="price">Nu. 300</span>
+                            <span class="period">/month</span>
+                        </div>
+                    </div>
+                    <ul class="option-features">
+                        <li><i class="fas fa-check"></i> Full equipment access</li>
+                        <li><i class="fas fa-check"></i> Book at your preference</li>
+                        <li><i class="fas fa-check"></i> Real time information</li>
+                    </ul>
+                    <button class="btn btn-outline" onclick="selectPlan(1, 300, '1 Month')">Select Plan</button>
+                </div>
+
+                <div class="renewal-option featured">
+                    <div class="popular-badge">MOST POPULAR</div>
+                    <div class="option-header">
+                        <h3>3 Months</h3>
+                        <div class="option-price">
+                            <span class="price">Nu. 900</span>
+                            <span class="period">/3 months</span>
+                        </div>
+                        <!-- <span class="save-badge">Save Nu. 50</span> -->
+                    </div>
+                    <ul class="option-features">
+                        <li><i class="fas fa-check"></i> Full equipment access</li>
+                        <li><i class="fas fa-check"></i> Book at your preference</li>
+                        <li><i class="fas fa-check"></i> Real time information</li>
+                    </ul>
+                    <button class="btn btn-primary" onclick="selectPlan(3, 850, '3 Months')">Select Plan</button>
+                </div>
+
+                <div class="renewal-option">
+                    <div class="option-header">
+                        <h3>6 Months</h3>
+                        <div class="option-price">
+                            <span class="price">Nu. 1,200</span>
+                            <span class="period">/6 months</span>
+                        </div>
+                        <span class="save-badge">whole semester</span>
+                    </div>
+                    <ul class="option-features">
+                        <li><i class="fas fa-check"></i> Full equipment access</li>
+                        <li><i class="fas fa-check"></i> Book at your preference</li>
+                        <li><i class="fas fa-check"></i> Real time information</li>
+                    </ul>
+                    <button class="btn btn-outline" onclick="selectPlan(6, 1650, '6 Months')">Select Plan</button>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Renewal Modal -->
+    <div class="modal" id="renewal-modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2>Renew Membership</h2>
+                <button class="modal-close" id="modal-close">&times;</button>
+            </div>
+            <div class="modal-body">
+                <div class="renewal-summary">
+                    <div class="summary-row">
+                        <span>Plan:</span>
+                        <span id="modal-plan">1 Month</span>
+                    </div>
+                    <div class="summary-row">
+                        <span>Current Expiry:</span>
+                        <span id="modal-current-expiry">November 30, 2025</span>
+                    </div>
+                    <div class="summary-row">
+                        <span>New Expiry:</span>
+                        <span id="modal-new-expiry">December 31, 2025</span>
+                    </div>
+                    <div class="summary-row total">
+                        <span>Total Amount:</span>
+                        <span id="modal-total">Nu. 300</span>
+                    </div>
+                </div>
+
+                <div class="timing">
+                    <label for="timingPreference">Select Preferred Time Slot:</label>
+                    <select class="form-select custom-input" id="timingPreference" name="timingPreference">
+                        <option value="Morning (5 AM - 7 AM)">Morning (5 AM - 7 AM)</option>
+                        <option value="Evening (5 PM - 7 PM)">Evening (5 PM - 7 PM)</option>
+                        <option value="Night (8 PM - 10 PM)">Night (8 PM - 10 PM)</option>
+                    </select>
+                </div>
+
+                <div class="payment-section">
+                    <h3 class="payment-title">Upload Payment Screenshot</h3>
+                    <div class="status-info">
+                        <p><i class="fas fa-info-circle"></i> Your payment will be verified by admin. Membership activates after approval.</p>
+                    </div>
+
+                    <div class="drop-zone" id="dropZone">
+                        <div class="dz-icon"><i class="fas fa-image"></i></div>
+                        <div class="dz-text">
+                            <p>Click to upload or drag & drop</p>
+                            <small>PNG, JPG, JPEG, WebP (Max 5MB). You can also paste (Ctrl+V)</small>
+                        </div>
+                        <input type="file" id="fileInput" accept="image/*" multiple hidden>
+                    </div>
+
+                    <div class="previews" id="previews"></div>
+                    <div class="error" id="errorMsg"></div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button class="btn btn-secondary" id="modal-cancel">Cancel</button>
+                <button class="btn btn-primary" id="submit-request-btn">
+                    <i class="fas fa-check"></i>
+                    Submit Request
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <script src="../JS/membership.js"></script>
+</body>
+</html>
