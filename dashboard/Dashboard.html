@@ -1,0 +1,335 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JNEC Online Fitness Gym - Dashboard</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="../CSS/dashboard.css">
+</head>
+<body>
+    <!-- Menu Button (Hamburger) -->
+    <button class="menu-toggle" id="menu-toggle">
+        <i class="fas fa-bars"></i>
+    </button>
+
+    <!-- Overlay for mobile -->
+    <div class="sidebar-overlay" id="sidebar-overlay"></div>
+
+    <!-- Sidebar -->
+    <aside class="sidebar" id="sidebar">
+        <div class="logo-section">
+            <img src="../PHOTOS/LOGO.png" alt="logo" class="logo-icon">
+            <div class="logo-text">
+                <h2>JNEC Fitness</h2>
+                <p>Online Gym</p>
+            </div>
+        </div>
+        <ul class="nav-menu">
+            <li class="nav-item">
+                <a href="#" class="nav-link active" data-page="dashboard">
+                    <i class="fas fa-th-large"></i>
+                    <span>Dashboard</span>
+                </a>
+            </li>
+            <li class="nav-item">
+                <a href="membership.html" class="nav-link" data-page="membership">
+                    <i class="fas fa-id-card"></i>
+                    <span>My Membership</span>
+                </a>
+            </li>
+            <li class="nav-item">
+                <a href="equipment.html" class="nav-link" data-page="equipment">
+                    <i class="fas fa-dumbbell"></i>
+                    <span>Equipment</span>
+                </a>
+            </li>
+            <li class="nav-item">
+                <a href="myschedule.html" class="nav-link" data-page="schedule">
+                    <i class="far fa-calendar-alt"></i>
+                    <span>My Schedule</span>
+                </a>
+            </li>
+            <li class="nav-item">
+                <a href="feedback.html" class="nav-link" data-page="feedback">
+                    <i class="far fa-comment"></i>
+                    <span>Feedback</span>
+                </a>
+            </li>
+            <li class="nav-item">
+                <a href="setting.html" class="nav-link" data-page="settings">
+                    <i class="fas fa-cog"></i>
+                    <span>Settings</span>
+                </a>
+            </li>
+        </ul>
+    </aside>
+
+    <!-- Top Bar -->
+    <header class="topbar">
+        <div class="page-title">
+            <h1 id="page-title">Dashboard</h1>
+        </div>
+        <div class="topbar-actions">
+            <div class="search-box">
+                <i class="fas fa-search search-icon"></i>
+                <input type="text" placeholder="Search equipment, workouts...">
+            </div>
+            <a href="notification.html" class="icon-button" id="notification-btn">
+                <i class="far fa-bell"></i>
+                <span class="notification-badge"></span>
+            </a>
+            <div class="user-profile" id="user-profile">
+                <div class="user-avatar">TD</div>
+                <span class="user-name">Tshewang Dorji</span>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="main-content">
+        <!-- Membership Alert -->
+        <div class="membership-alert active" id="membership-alert">
+            <div class="alert-content">
+                <i class="fas fa-check-circle alert-icon"></i>
+                <div class="alert-text">
+                    <strong>Active Membership</strong>
+                    <p>Your membership is valid until November 30, 2025 • Full access to all equipment</p>
+                </div>
+            </div>
+            <span class="alert-days">31 days remaining</span>
+        </div>
+
+        <!-- Stats Grid -->
+        <div class="stats-grid">
+            <div class="stat-card">
+                <div class="stat-header">
+                    <div>
+                        <div class="stat-value" id="membership-status">Active</div>
+                        <div class="stat-label">Membership Status</div>
+                        <div class="stat-change positive">
+                            <i class="fas fa-check"></i> Full Access
+                        </div>
+                    </div>
+                    <div class="stat-icon green">
+                        <i class="fas fa-ticket-alt"></i>
+                    </div>
+                </div>
+            </div>
+
+            <div class="stat-card">
+                <div class="stat-header">
+                    <div>
+                        <div class="stat-value" id="days-remaining">31</div>
+                        <div class="stat-label">Days Remaining</div>
+                        <div class="stat-change">
+                            <i class="far fa-calendar"></i> Expires Nov 30
+                        </div>
+                    </div>
+                    <div class="stat-icon blue">
+                        <i class="far fa-clock"></i>
+                    </div>
+                </div>
+            </div>
+
+            <div class="stat-card">
+                <div class="stat-header">
+                    <div>
+                        <div class="stat-value" id="total-slots-available">18</div>
+                        <div class="stat-label">Available Slots</div>
+                        <div class="stat-change positive">
+                            <i class="fas fa-check"></i> Out of 30 Total
+                        </div>
+                    </div>
+                    <div class="stat-icon orange">
+                        <i class="fas fa-users"></i>
+                    </div>
+                </div>
+            </div>
+
+            
+        </div>
+
+        <!-- Monthly Slot Availability Section -->
+        <div class="card full-width-card">
+            <div class="card-header">
+                <h2 class="card-title">
+                    <i class="fas fa-calendar-check"></i> 
+                    Monthly Slot Availability - October 2025
+                </h2>
+                <div class="month-info">
+                    <span class="total-capacity">Total Capacity: 30 Members</span>
+                </div>
+            </div>
+            
+            <div class="slots-overview">
+                <div class="slot-period-card morning">
+                    <div class="period-header">
+                        <div class="period-icon">
+                            <i class="fas fa-sunrise"></i>
+                        </div>
+                        <div class="period-info">
+                            <h3>Morning Slot</h3>
+                            <p class="time-range">5:00 AM - 7:00 AM</p>
+                        </div>
+                    </div>
+                    <div class="slot-stats">
+                        <div class="slot-count">
+                            <span class="available-count" id="morning-available">7</span>
+                            <span class="total-count">/ 10</span>
+                        </div>
+                        <span class="slots-label">Available</span>
+                    </div>
+                    <div class="progress-bar">
+                        <div class="progress-fill morning-progress" id="morning-progress" style="width: 30%"></div>
+                    </div>
+                    <div class="slot-status">
+                        <span class="booked-info">
+                            <i class="fas fa-user"></i> 3 Booked
+                        </span>
+                    </div>
+                    
+                </div>
+
+                <div class="slot-period-card evening">
+                    <div class="period-header">
+                        <div class="period-icon">
+                            <i class="fas fa-sun"></i>
+                        </div>
+                        <div class="period-info">
+                            <h3>Evening Slot</h3>
+                            <p class="time-range">5:00 PM - 7:00 PM</p>
+                        </div>
+                    </div>
+                    <div class="slot-stats">
+                        <div class="slot-count">
+                            <span class="available-count" id="evening-available">5</span>
+                            <span class="total-count">/ 10</span>
+                        </div>
+                        <span class="slots-label">Available</span>
+                    </div>
+                    <div class="progress-bar">
+                        <div class="progress-fill evening-progress" id="evening-progress" style="width: 50%"></div>
+                    </div>
+                    <div class="slot-status">
+                        <span class="booked-info">
+                            <i class="fas fa-user"></i> 5 Booked
+                        </span>
+                    </div>
+                    
+                </div>
+
+                <div class="slot-period-card night">
+                    <div class="period-header">
+                        <div class="period-icon">
+                            <i class="fas fa-moon"></i>
+                        </div>
+                        <div class="period-info">
+                            <h3>Night Slot</h3>
+                            <p class="time-range">8:00 PM - 10:00 PM</p>
+                        </div>
+                    </div>
+                    <div class="slot-stats">
+                        <div class="slot-count">
+                            <span class="available-count" id="night-available">6</span>
+                            <span class="total-count">/ 10</span>
+                        </div>
+                        <span class="slots-label">Available</span>
+                    </div>
+                    <div class="progress-bar">
+                        <div class="progress-fill night-progress" id="night-progress" style="width: 40%"></div>
+                    </div>
+                    <div class="slot-status">
+                        <span class="booked-info">
+                            <i class="fas fa-user"></i> 4 Booked
+                        </span>
+                    </div>
+                   
+                </div>
+            </div>
+
+            <div class="slot-summary">
+                <div class="summary-item">
+                    <i class="fas fa-chart-pie"></i>
+                    <span>Total Booked: <strong id="total-booked">12</strong> / 30</span>
+                </div>
+                <div class="summary-item">
+                    <i class="fas fa-hourglass-half"></i>
+                    <span>Remaining: <strong id="total-remaining">18</strong> slots</span>
+                </div>
+                <div class="summary-item">
+                    <i class="fas fa-percentage"></i>
+                    <span>Occupancy: <strong id="occupancy-rate">40%</strong></span>
+                </div>
+            </div>
+        </div>
+
+        <!-- Content Grid -->
+        <div class="content-grid">
+            <!-- Equipment Overview -->
+            <div class="card">
+                <div class="card-header">
+                    <h2 class="card-title">Equipment Overview</h2>
+                    <a href="../HTML/equipment.html" class="view-all">View All →</a>
+                </div>
+                <div class="equipment-grid" id="equipment-grid">
+                    <!-- Equipment items will be loaded by JavaScript -->
+                </div>
+            </div>
+
+            <!-- Quick Actions & Recent Activity -->
+            <div class="sidebar-section">
+                <!-- Quick Actions -->
+                <div class="card">
+                    <div class="card-header">
+                        <h2 class="card-title">Quick Actions</h2>
+                    </div>
+                    <div class="quick-actions">
+                        <a href="../HTML/membership.html" class="action-btn" id="renew-btn">
+                            <i class="fas fa-sync-alt"></i>
+                            <span>Renew Membership</span>
+                        </a>
+
+                        <a href="../HTML/myschedule.html" class="action-btn secondary" id="schedule-btn">
+                            <i class="far fa-calendar-alt"></i>
+                            <span>View My Schedule</span>
+                        </a>
+
+                        <a href="../HTML/feedback.html" class="action-btn tertiary" id="feedback-btn">
+                            <i class="far fa-comment-dots"></i>
+                            <span>Give Feedback</span>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Payment Info -->
+                <div class="card">
+                    <div class="card-header">
+                        <h2 class="card-title">Membership Details</h2>
+                    </div>
+                    <div class="payment-info">
+                        <div class="info-row">
+                            <span class="info-label">Monthly Fee</span>
+                            <span class="info-value">Nu. 300</span>
+                        </div>
+                        <div class="info-row">
+                            <span class="info-label">Start Date</span>
+                            <span class="info-value">Oct 1, 2025</span>
+                        </div>
+                        <div class="info-row">
+                            <span class="info-label">End Date</span>
+                            <span class="info-value">Nov 30, 2025</span>
+                        </div>
+                        <div class="info-row">
+                            <span class="info-label">Payment Status</span>
+                            <span class="status-badge confirmed">Paid</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <script src="../JS/dashboard.js"></script>
+</body>
+</html>
