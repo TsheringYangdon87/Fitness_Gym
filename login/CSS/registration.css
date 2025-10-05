@@ -1,0 +1,531 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background: url('../PHOTOS/Background img.jpg') no-repeat center center fixed;
+  background-size: cover;
+  min-height: 100vh;
+  position: relative;
+  overflow-x: hidden;
+  margin-left: 10px;
+  padding-right: 10px;
+}
+
+.topic {
+    color: #fff;
+    font-weight: bold;
+}
+.main-container .registration-card {
+  margin-left: auto;
+  margin-right: 0;
+}
+
+/* Navigation */
+.navbar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 1000;
+    background: rgba(0, 0, 0, 0.24);
+    backdrop-filter: blur(10px);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    transition: all 0.3s ease;
+}
+
+.nav-logo,
+.nav-logo-right {
+  height: 50px;
+  width: auto;
+  filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.3));
+  transition: transform 0.3s ease;
+}
+
+.nav-logo:hover,
+.nav-logo-right:hover {
+  transform: scale(1.05);
+}
+
+.navbar-brand {
+  margin-right: 0;
+}
+
+.navbar-toggler {
+  border-color: rgba(255, 255, 255, 0.3);
+}
+
+.navbar-toggler-icon {
+  background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3e%3cpath stroke='rgba(255, 255, 255, 0.9)' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e");
+}
+
+.nav-link {
+  color: rgba(255, 255, 255, 0.9) !important;
+  font-weight: 500;
+  padding: 0.5rem 1.2rem !important;
+  transition: all 0.3s ease;
+  border-radius: 8px;
+  position: relative;
+}
+
+.nav-link::before {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 0;
+  height: 2px;
+  background: #fff;
+  transition: width 0.3s ease;
+}
+
+.nav-link:hover {
+  color: #fff !important;
+  background: rgba(255, 255, 255, 0.1);
+}
+
+.nav-link:hover::before {
+  width: 80%;
+}
+
+/* Main Container */
+.main-container {
+  position: relative;
+  z-index: 1;
+  padding: 1rem 1rem 1rem 1rem;
+  padding-top: 100px;
+  width: 1270px;
+  padding-left: 0px;
+}
+
+/* Registration Card */
+.registration-card {
+  background: rgba(255, 255, 255, 0.98);
+  border-radius: 25px;
+  box-shadow: 0 25px 70px rgba(0, 0, 0, 0.4);
+  overflow: hidden;
+}
+
+/* Welcome Section */
+.welcome-section {
+  background: linear-gradient(135deg, #45686e 0%, #2c5f6f 100%);
+  color: #fff;
+  position: relative;
+  overflow: hidden;
+}
+
+.logo-circle {
+  width: 120px;
+  height: 120px;
+  background: rgba(255, 255, 255, 0.15);
+  backdrop-filter: blur(10px);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 3px solid rgba(255, 255, 255, 0.3);
+  position: relative;
+  z-index: 1;
+}
+
+.logo-circle i {
+  font-size: 3.5rem;
+  color: #fff;
+}
+
+.welcome-title {
+  font-size: 2.2rem;
+  font-weight: 700;
+  text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.3);
+  position: relative;
+  z-index: 1;
+}
+
+.welcome-text {
+  font-size: 1.05rem;
+  line-height: 1.6;
+  opacity: 0.95;
+  position: relative;
+  z-index: 1;
+}
+
+.benefits-list {
+  position: relative;
+  z-index: 1;
+}
+
+.benefit-item {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 12px 20px;
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(5px);
+  border-radius: 12px;
+  margin-bottom: 12px;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.benefit-item i {
+  font-size: 1.2rem;
+  color: #a8dadc;
+}
+
+.benefit-item span {
+  font-size: 0.95rem;
+  font-weight: 500;
+}
+
+/* Form Section */
+.form-section {
+  background: #fff;
+}
+
+.form-header {
+  border-bottom: 2px solid #f0f0f0;
+  padding-bottom: 1.5rem;
+}
+
+.form-title {
+  color: #2c5f6f;
+  font-size: 1.8rem;
+  font-weight: 700;
+  margin-bottom: 0.5rem;
+}
+
+.form-subtitle {
+  color: #6c757d;
+  font-size: 1rem;
+  margin: 0;
+}
+
+/* Form Labels */
+.form-label {
+  color: #2c5f6f;
+  font-weight: 600;
+  font-size: 0.95rem;
+  margin-bottom: 0.5rem;
+  display: flex;
+  align-items: center;
+}
+
+.form-label i {
+  color: #45686e;
+}
+
+/* Custom Inputs */
+.custom-input {
+  padding: 12px 16px;
+  border: 2px solid #e0e0e0;
+  border-radius: 10px;
+  font-size: 0.95rem;
+  transition: all 0.3s ease;
+  background: #fff;
+}
+
+.custom-input:focus {
+  border-color: #45686e;
+  box-shadow: 0 0 0 0.2rem rgba(69, 104, 110, 0.15);
+  outline: none;
+  background: #fff;
+}
+
+.custom-input:hover:not(:focus) {
+  border-color: #45686e;
+}
+
+.custom-input::placeholder {
+  color: #adb5bd;
+}
+
+/* Input Group Addon */
+.custom-input-addon {
+  background: #f8f9fa;
+  border: 2px solid #e0e0e0;
+  border-right: none;
+  color: #495057;
+  font-weight: 600;
+  border-radius: 10px 0 0 10px;
+}
+
+.input-group:focus-within .custom-input-addon {
+  border-color: #45686e;
+  background: rgba(69, 104, 110, 0.05);
+}
+
+.input-group .custom-input {
+  border-left: none;
+  border-radius: 0 10px 10px 0;
+}
+
+/* Select Dropdown */
+.form-select.custom-input {
+  cursor: pointer;
+  background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3e%3cpath fill='none' stroke='%2345686e' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='M2 5l6 6 6-6'/%3e%3c/svg%3e");
+  background-repeat: no-repeat;
+  background-position: right 0.75rem center;
+  background-size: 16px 12px;
+}
+
+.form-select.custom-input option {
+  padding: 10px;
+}
+
+/* Register Button */
+.btn-register {
+  background: linear-gradient(135deg, #45686e 0%, #2c5f6f 100%);
+  border: none;
+  color: #fff;
+  padding: 14px 24px;
+  border-radius: 12px;
+  font-size: 1.1rem;
+  font-weight: 600;
+  transition: all 0.3s ease;
+  box-shadow: 0 6px 20px rgba(69, 104, 110, 0.4);
+  position: relative;
+  overflow: hidden;
+}
+
+.btn-register::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
+  transition: left 0.5s ease;
+}
+
+.btn-register:hover::before {
+  left: 100%;
+}
+
+.btn-register:hover {
+  background: linear-gradient(135deg, #2c5f6f 0%, #1a3940 100%);
+  box-shadow: 0 10px 30px rgba(69, 104, 110, 0.6);
+}
+
+.btn-register:active {
+  transform: scale(0.98);
+}
+
+.btn-register i {
+  transition: transform 0.3s ease;
+}
+
+.btn-register:hover i {
+  transform: translateX(5px);
+}
+
+/* Login Text */
+.login-text {
+  color: #6c757d;
+  font-size: 0.95rem;
+  margin: 0;
+}
+
+.login-link {
+  color: #45686e;
+  text-decoration: none;
+  font-weight: 600;
+  transition: all 0.3s ease;
+  position: relative;
+}
+
+.login-link::after {
+  content: '';
+  position: absolute;
+  bottom: -2px;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background: #45686e;
+  transition: width 0.3s ease;
+}
+
+.login-link:hover {
+  color: #2c5f6f;
+}
+
+.login-link:hover::after {
+  width: 100%;
+}
+
+/* Validation Styles */
+.custom-input.is-invalid {
+  border-color: #dc3545;
+}
+
+.custom-input.is-invalid:focus {
+  box-shadow: 0 0 0 0.2rem rgba(220, 53, 69, 0.25);
+}
+
+.invalid-feedback {
+  display: none;
+  color: #dc3545;
+  font-size: 0.875rem;
+  margin-top: 0.25rem;
+  font-weight: 500;
+}
+
+.custom-input.is-invalid ~ .invalid-feedback {
+  display: block;
+}
+
+.input-group .custom-input.is-invalid ~ .invalid-feedback {
+  display: block;
+  margin-top: 0.25rem;
+}
+
+/* Success State */
+.custom-input.is-valid {
+  border-color: #28a745;
+}
+
+.custom-input.is-valid:focus {
+  box-shadow: 0 0 0 0.2rem rgba(40, 167, 69, 0.25);
+}
+
+/* Loading State */
+.btn-register:disabled {
+  opacity: 0.7;
+  cursor: not-allowed;
+}
+
+.btn-register .spinner-border {
+  width: 1.2rem;
+  height: 1.2rem;
+  border-width: 2px;
+}
+
+/* Shake Animation for Errors */
+@keyframes shake {
+  0%, 100% {
+    transform: translateX(0);
+  }
+  10%, 30%, 50%, 70%, 90% {
+    transform: translateX(-8px);
+  }
+  20%, 40%, 60%, 80% {
+    transform: translateX(8px);
+  }
+}
+
+.shake {
+  animation: shake 0.5s ease-in-out;
+}
+
+/* Responsive Design */
+@media (max-width: 991px) {
+  .welcome-section {
+    padding: 3rem 2rem !important;
+  }
+
+  .welcome-title {
+    font-size: 1.8rem;
+  }
+
+  .logo-circle {
+    width: 100px;
+    height: 100px;
+  }
+
+  .logo-circle i {
+    font-size: 3rem;
+  }
+
+  .form-section {
+    padding: 3rem 2rem !important;
+  }
+}
+
+@media (max-width: 768px) {
+  .navbar {
+    padding: 0.75rem 0;
+  }
+
+  .nav-logo,
+  .nav-logo-right {
+    height: 40px;
+  }
+
+  .nav-logo-right {
+    display: none;
+  }
+
+  .main-container {
+    padding: 1rem 0.5rem;
+  }
+
+  .registration-card {
+    border-radius: 20px;
+  }
+
+  .welcome-section {
+    padding: 2.5rem 1.5rem !important;
+  }
+
+  .welcome-title {
+    font-size: 1.6rem;
+  }
+
+  .logo-circle {
+    width: 90px;
+    height: 90px;
+  }
+
+  .logo-circle i {
+    font-size: 2.5rem;
+  }
+
+  .form-section {
+    padding: 2.5rem 1.5rem !important;
+  }
+
+  .form-title {
+    font-size: 1.5rem;
+  }
+
+  .benefit-item {
+    padding: 10px 15px;
+    font-size: 0.9rem;
+  }
+}
+
+@media (max-width: 576px) {
+  .welcome-section {
+    padding: 2rem 1rem !important;
+  }
+
+  .form-section {
+    padding: 2rem 1rem !important;
+  }
+
+  .custom-input,
+  .custom-input-addon {
+    padding: 10px 12px;
+    font-size: 0.9rem;
+  }
+
+  .btn-register {
+    padding: 12px 20px;
+    font-size: 1rem;
+  }
+
+  .form-label {
+    font-size: 0.9rem;
+  }
+}
+
+/* Smooth Transitions */
+.custom-input,
+.btn-register,
+.nav-link,
+.login-link {
+  transition: all 0.3s ease;
+}

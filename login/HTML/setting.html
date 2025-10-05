@@ -1,0 +1,284 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Settings - JNEC Fitness</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="../CSS/setting.css">
+</head>
+<body>
+    <!-- Menu Button (Hamburger) -->
+    <button class="menu-toggle" id="menu-toggle">
+        <i class="fas fa-bars"></i>
+    </button>
+
+    <!-- Overlay for mobile -->
+    <div class="sidebar-overlay" id="sidebar-overlay"></div>
+
+    <!-- Sidebar -->
+    <aside class="sidebar" id="sidebar">
+        <div class="logo-section">
+            <img src="../PHOTOS/LOGO.png" alt="logo" class="logo-icon">
+            <div class="logo-text">
+                <h2>JNEC Fitness</h2>
+                <p>Online Gym</p>
+            </div>
+        </div>
+        <ul class="nav-menu">
+            <li class="nav-item">
+                <a href="dashboard.html" class="nav-link" data-page="dashboard">
+                    <i class="fas fa-th-large"></i>
+                    <span>Dashboard</span>
+                </a>
+            </li>
+            <li class="nav-item">
+                <a href="membership.html" class="nav-link" data-page="membership">
+                    <i class="fas fa-id-card"></i>
+                    <span>My Membership</span>
+                </a>
+            </li>
+            <li class="nav-item">
+                <a href="equipment.html" class="nav-link" data-page="equipment">
+                    <i class="fas fa-dumbbell"></i>
+                    <span>Equipment</span>
+                </a>
+            </li>
+            <li class="nav-item">
+                <a href="myschedule.html" class="nav-link" data-page="schedule">
+                    <i class="far fa-calendar-alt"></i>
+                    <span>My Schedule</span>
+                </a>
+            </li>
+            <li class="nav-item">
+                <a href="feedback.html" class="nav-link" data-page="feedback">
+                    <i class="far fa-comment"></i>
+                    <span>Feedback</span>
+                </a>
+            </li>
+            <li class="nav-item">
+                <a href="settings.html" class="nav-link active" data-page="settings">
+                    <i class="fas fa-cog"></i>
+                    <span>Settings</span>
+                </a>
+            </li>
+        </ul>
+    </aside>
+
+    <!-- Top Bar -->
+    <header class="topbar">
+        <div class="page-title">
+            <h1 id="page-title">Settings</h1>
+        </div>
+        <div class="topbar-actions">
+            <div class="search-box">
+                <i class="fas fa-search search-icon"></i>
+                <input type="text" placeholder="Search settings...">
+            </div>
+            <a href="notification.html" class="icon-button" id="notification-btn">
+                <i class="far fa-bell"></i>
+                <span class="notification-badge"></span>
+            </a>
+            <div class="user-profile" id="user-profile">
+                <div class="user-avatar">TD</div>
+                <span class="user-name">Tshewang Dorji</span>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="main-content">
+        <div class="settings-container">
+            <!-- Account/Profile Section -->
+            <div class="settings-section">
+                <div class="section-header">
+                    <i class="fas fa-user-circle"></i>
+                    <h2>Account & Profile</h2>
+                </div>
+                <div class="settings-card">
+                    <div class="profile-info">
+                        <div class="profile-avatar-large">TD</div>
+                        <div class="profile-details">
+                            <h3>Tshewang Dorji</h3>
+                            <p>05240159.jnec@reb.edu.bt</p>
+                            <a href="../HTML/profileEdit.html" class="btn-primary">Edit Profile</a>
+                        </div>
+                    </div>
+                    <div class="settings-item">
+                        <div class="item-info">
+                            <i class="fas fa-lock"></i>
+                            <div>
+                                <h4>Change Password</h4>
+                                <p>Update your password regularly for security</p>
+                            </div>
+                        </div>
+                        <a href="../HTML/changepassword.html" class="btn-secondary" id="changePasswordBtn">Change</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Notifications Section -->
+            <div class="settings-section">
+                <div class="section-header">
+                    <i class="fas fa-bell"></i>
+                    <h2>Notifications</h2>
+                </div>
+                <div class="settings-card">
+                    <div class="settings-item">
+                        <div class="item-info">
+                            <i class="fas fa-envelope"></i>
+                            <div>
+                                <h4>Email Notifications</h4>
+                                <p>Receive updates via email</p>
+                            </div>
+                        </div>
+                        <label class="toggle-switch">
+                            <input type="checkbox" id="emailNotif" checked>
+                            <span class="toggle-slider"></span>
+                        </label>
+                    </div>
+                    <div class="settings-item">
+                        <div class="item-info">
+                            <i class="fas fa-calendar-check"></i>
+                            <div>
+                                <h4>Workout Reminders</h4>
+                                <p>Remind me about scheduled workouts</p>
+                            </div>
+                        </div>
+                        <label class="toggle-switch">
+                            <input type="checkbox" id="workoutReminder" checked>
+                            <span class="toggle-slider"></span>
+                        </label>
+                    </div>
+                    <div class="settings-item">
+                        <div class="item-info">
+                            <i class="fas fa-clock"></i>
+                            <div>
+                                <h4>Membership Expiry Alerts</h4>
+                                <p>Get notified before membership expires</p>
+                            </div>
+                        </div>
+                        <label class="toggle-switch">
+                            <input type="checkbox" id="expiryAlert" checked>
+                            <span class="toggle-slider"></span>
+                        </label>
+                    </div>
+                </div>
+            </div>
+
+            <!-- App Information Section -->
+            <div class="settings-section">
+                <div class="section-header">
+                    <i class="fas fa-info-circle"></i>
+                    <h2>App Information</h2>
+                </div>
+                <div class="settings-card">
+                    <div class="settings-item clickable" id="aboutUsBtn">
+                        <div class="item-info">
+                            <i class="fas fa-building"></i>
+                            <div>
+                                <h4>About Us</h4>
+                                <p>Learn more about JNEC Fitness</p>
+                            </div>
+                        </div>
+                        <i class="fas fa-chevron-right"></i>
+                    </div>
+                    <div class="settings-item clickable" id="rateAppBtn">
+                        <div class="item-info">
+                            <i class="fas fa-star"></i>
+                            <div>
+                                <h4>Rate App</h4>
+                                <p>Share your experience with us</p>
+                            </div>
+                        </div>
+                        <i class="fas fa-chevron-right"></i>
+                    </div>
+                    <div class="settings-item clickable" id="appFeedbackBtn">
+                        <div class="item-info">
+                            <i class="fas fa-comment-alt"></i>
+                            <div>
+                                <h4>App Feedback</h4>
+                                <p>Help us improve the app</p>
+                            </div>
+                        </div>
+                        <i class="fas fa-chevron-right"></i>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Logout Section -->
+            <div class="settings-section">
+                <div class="settings-card">
+                    <a href="../HTML/loginpage.html" class="btn-logout">
+                        <i class="fas fa-sign-out-alt"></i>
+                        Logout
+                    </a>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Modal for About Us -->
+    <div class="modal" id="aboutUsModal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3>About Us</h3>
+                <button class="modal-close" data-modal="aboutUsModal">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+            <div class="modal-body">
+                <p>JNEC Online Fitness Gym is your digital solution for efficient gym management, allowing users to book gym, track schedules, can view equipment details and receive personalized notifications.</p>
+                <p>Designed in May 2025 as a student project, the system aims to automate gym operations and replace slow manual workflows, thereby enhancing the user experience and engagement within the college community.</p>
+                <div class="modal-info">
+                    <p><strong>Location:</strong>Jigme Namgyel Engineering College, Dewathang, Bhutan</p>
+                    <p><strong>Email:</strong> 05240156.jnec@rub.edu.bt</p>
+                    <p><strong>Phone:</strong> +975 1778 8329</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal for Rate App -->
+    <div class="modal" id="rateAppModal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3>Rate Our App</h3>
+                <button class="modal-close" data-modal="rateAppModal">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+            <div class="modal-body">
+                <p>How would you rate your experience with JNEC Fitness?</p>
+                <div class="rating-stars">
+                    <i class="far fa-star" data-rating="1"></i>
+                    <i class="far fa-star" data-rating="2"></i>
+                    <i class="far fa-star" data-rating="3"></i>
+                    <i class="far fa-star" data-rating="4"></i>
+                    <i class="far fa-star" data-rating="5"></i>
+                </div>
+                <button class="btn-primary" id="submitRatingBtn">Submit Rating</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal for App Feedback -->
+    <div class="modal" id="appFeedbackModal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3>App Feedback</h3>
+                <button class="modal-close" data-modal="appFeedbackModal">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+            <div class="modal-body">
+                <p>We'd love to hear your thoughts on how we can improve!</p>
+                <textarea class="feedback-textarea" id="feedbackTextarea" placeholder="Share your feedback here..." rows="6"></textarea>
+                <button class="btn-primary" id="submitFeedbackBtn">Submit Feedback</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="../JS/setting.js"></script>
+</body>
+</html>
