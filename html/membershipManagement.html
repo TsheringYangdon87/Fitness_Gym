@@ -1,0 +1,405 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Membership Management - JNEC Fitness Admin</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="../css/membershipManagement.css">
+</head>
+<body>
+    <button class="menu-toggle" id="menu-toggle">
+        <i class="fas fa-bars"></i>
+    </button>
+
+    <!-- Overlay for mobile -->
+    <div class="sidebar-overlay" id="sidebar-overlay"></div>
+    
+    <!-- Sidebar -->
+    <aside class="sidebar" id="sidebar">
+        <div class="logo-section">
+            <img src="../images/LOGO.png" alt="logo" class="logo-icon">
+            <div class="logo-text">
+                <h2>JNEC Fitness</h2>
+                <p>Admin Panel</p>
+            </div>
+        </div>
+        <ul class="nav-menu">
+            <li class="nav-item">
+                <a href="dashboard.html" class="nav-link">
+                    <i class="fas fa-th-large"></i>
+                    <span>Dashboard</span>
+                </a>
+            </li>
+            <li class="nav-item">
+                <a href="membershipManagement.html" class="nav-link active">
+                    <i class="fas fa-users"></i>
+                    <span>Manage Membership</span>
+                </a>
+            </li>
+            <li class="nav-item">
+                <a href="equipment.html" class="nav-link">
+                    <i class="fas fa-dumbbell"></i>
+                    <span>Manage Equipment</span>
+                </a>
+            </li>
+            <li class="nav-item">
+                <a href="schedule.html" class="nav-link">
+                    <i class="far fa-calendar-alt"></i>
+                    <span>Manage Schedule</span>
+                </a>
+            </li>
+            <li class="nav-item">
+                <a href="communication.html" class="nav-link">
+                    <i class="far fa-comment"></i>
+                    <span>Communication</span>
+                </a>
+            </li>
+            <li class="nav-item">
+                <a href="report&analytics.html" class="nav-link">
+                    <i class="fas fa-chart-bar"></i>
+                    <span>Reports & Analytics</span>
+                </a>
+            </li>
+            <li class="nav-item">
+                <a href="adminmanagement.html" class="nav-link">
+                    <i class="fas fa-user-shield"></i>
+                    <span>Admin Management</span>
+                </a>
+            </li>
+            <li class="nav-item">
+                <a href="setting.html" class="nav-link">
+                    <i class="fas fa-cog"></i>
+                    <span>Settings</span>
+                </a>
+            </li>
+            <li class="logout">
+                <a href="../html/login.html" class="nav-link" data-page="logout">
+                    <i class="fas fa-sign-out-alt"></i>
+                    <span>Logout</span>
+                </a>
+            </li>
+        </ul>
+    </aside>
+
+    <!-- Top Bar -->
+    <header class="topbar">
+        <div class="page-title">
+            <h1>Membership Management</h1>
+            <p class="page-subtitle">Manage member subscriptions and information</p>
+        </div>
+        <div class="topbar-actions">
+            <div class="search-box">
+                <i class="fas fa-search search-icon"></i>
+                <input type="text" id="search-input" placeholder="Search members...">
+            </div>
+            <a href="#" class="icon-button" id="notification-btn">
+                <i class="far fa-bell"></i>
+                <span class="notification-badge" id="notification-count">3</span>
+            </a>
+            <div class="user-profile">
+                <div class="user-avatar admin">AD</div>
+                <span class="user-name">Admin User</span>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="main-content">
+        <!-- Tab Navigation -->
+        <div class="tab-navigation">
+            <button class="tab-btn active" data-tab="members">
+                <i class="fas fa-users"></i> All Members
+            </button>
+            <button class="tab-btn" data-tab="requests">
+                <i class="fas fa-clock"></i> Pending Requests
+                <span class="tab-badge" id="requests-badge">3</span>
+            </button>
+        </div>
+
+        <!-- All Members Tab -->
+        <div class="tab-content active" id="members-tab">
+            <!-- Filters -->
+            <div class="card filters-card">
+                <div class="filters-row">
+                    <div class="filter-group">
+                        <label>Status</label>
+                        <select class="filter-select" id="status-filter">
+                            <option value="all">All Status</option>
+                            <option value="active">Active</option>
+                            <option value="expired">Expired</option>
+                            <option value="expiring">Expiring Soon</option>
+                        </select>
+                    </div>
+                    <div class="filter-group">
+                        <label>Plan Type</label>
+                        <select class="filter-select" id="plan-filter">
+                            <option value="all">All Plans</option>
+                            <option value="1">1 Month</option>
+                            <option value="3">3 Months</option>
+                            <option value="6">6 Months</option>
+                        </select>
+                    </div>
+                    <div class="filter-group">
+                        <label>User Type</label>
+                        <select class="filter-select" id="user-type-filter">
+                            <option value="all">All Types</option>
+                            <option value="student">Student</option>
+                            <option value="staff">Staff</option>
+                        </select>
+                    </div>
+                    <button class="btn btn-primary" onclick="openAddMemberModal()">
+                        <i class="fas fa-user-plus"></i> Add Member
+                    </button>
+                    <button class="btn btn-secondary" onclick="resetFilters()">
+                        <i class="fas fa-redo"></i> Reset
+                    </button>
+                </div>
+            </div>
+
+            <!-- Members Table -->
+            <div class="card">
+                <div class="card-header">
+                    <h2 class="card-title">All Members</h2>
+                </div>
+                <div class="table-container">
+                    <table class="members-table">
+                        <thead>
+                            <tr>
+                                <th>Name</th>
+                                <th>Email</th>
+                                <th>Phone</th>
+                                <th>User Type</th>
+                                <th>Gender</th>
+                                <th>Plan</th>
+                                <th>Timing</th>
+                                <th>Start Date</th>
+                                <th>End Date</th>
+                                <th>Status</th>
+                                <th>Actions</th>
+                            </tr>
+                        </thead>
+                        <tbody id="members-tbody">
+                            <!-- Members will be loaded here -->
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+
+        <!-- Pending Requests Tab -->
+        <div class="tab-content" id="requests-tab">
+            <div class="card">
+                <div class="card-header">
+                    <h2 class="card-title">Pending Membership Requests</h2>
+                </div>
+                <div class="requests-grid" id="requests-grid">
+                    <!-- Requests will be loaded here -->
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Add/Edit Member Modal -->
+    <div class="modal" id="member-modal">
+        <div class="modal-content large">
+            <div class="modal-header">
+                <h2 id="modal-title">Add New Member</h2>
+                <button class="modal-close" onclick="closeMemberModal()">&times;</button>
+            </div>
+            <div class="modal-body">
+                <form id="member-form">
+                    <div class="form-grid">
+                        <div class="form-section">
+                            <h3>Personal Information</h3>
+                            <div class="form-group">
+                                <label for="edit-name">Full Name *</label>
+                                <input type="text" id="edit-name" class="form-input" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="edit-email">Email *</label>
+                                <input type="email" id="edit-email" class="form-input" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="edit-phone">Phone Number *</label>
+                                <div class="phone-input">
+                                    <span class="phone-prefix">+975</span>
+                                    <input type="tel" id="edit-phone" class="form-input" required>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label for="edit-gender">Gender *</label>
+                                <select id="edit-gender" class="form-input" required>
+                                    <option value="">Select Gender</option>
+                                    <option value="male">Male</option>
+                                    <option value="female">Female</option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <div class="form-section">
+                            <h3>User Details</h3>
+                            <div class="form-group">
+                                <label for="edit-user-type">User Type *</label>
+                                <select id="edit-user-type" class="form-input" required onchange="toggleUserFields()">
+                                    <option value="">Select User Type</option>
+                                    <option value="student">Student</option>
+                                    <option value="staff">Staff</option>
+                                </select>
+                            </div>
+
+                            <!-- Student Fields -->
+                            <div id="student-fields" class="user-fields" style="display: none;">
+                                <div class="form-group">
+                                    <label for="edit-year">Year</label>
+                                    <select id="edit-year" class="form-input">
+                                        <option value="">Select Year</option>
+                                        <option value="First year">First Year</option>
+                                        <option value="Second year">Second Year</option>
+                                        <option value="Third year">Third Year</option>
+                                        <option value="Fourth year">Fourth Year</option>
+                                    </select>
+                                </div>
+                                <div class="form-group">
+                                    <label for="edit-course">Course</label>
+                                    <select id="edit-course" class="form-input">
+                                        <option value="">Select Course</option>
+                                        <option value="csn">Computer System and Network</option>
+                                        <option value="c">Civil</option>
+                                        <option value="MA">Multi-Media and Animation</option>
+                                        <option value="CS">Construction and Supervision</option>
+                                        <option value="E">Electrical</option>
+                                        <option value="ECE">Electronic and Communication Engineering</option>
+                                        <option value="M">Mechanical</option>
+                                        <option value="MPM">Materials and Procurement Management</option>
+                                    </select>
+                                </div>
+                            </div>
+
+                            <!-- Staff Fields -->
+                            <div id="staff-fields" class="user-fields" style="display: none;">
+                                <div class="form-group">
+                                    <label for="edit-department">Department</label>
+                                    <select id="edit-department" class="form-input">
+                                        <option value="">Select Department</option>
+                                        <option value="DIT">DIT</option>
+                                        <option value="DE">DE</option>
+                                        <option value="finance">Finance & Accounts</option>
+                                        <option value="hr">Human Resources</option>
+                                        <option value="it">Information Technology</option>
+                                        <option value="maintenance">Maintenance</option>
+                                        <option value="library">Library</option>
+                                        <option value="sports">Sports & Recreation</option>
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="form-section">
+                            <h3>Membership Details</h3>
+                            <div class="form-group">
+                                <label for="edit-plan">Plan Type *</label>
+                                <select id="edit-plan" class="form-input" required>
+                                    <option value="">Select Plan</option>
+                                    <option value="1 Month">1 Month - Nu. 300</option>
+                                    <option value="3 Months">3 Months - Nu. 900</option>
+                                    <option value="6 Months">6 Months - Nu. 1,200</option>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label for="edit-timing">Timing Slot *</label>
+                                <select id="edit-timing" class="form-input" required>
+                                    <option value="">Select Timing</option>
+                                    <option value="Morning (5 AM - 7 AM)">Morning (5 AM - 7 AM)</option>
+                                    <option value="Evening (5 PM - 7 PM)">Evening (5 PM - 7 PM)</option>
+                                    <option value="Night (8 PM - 10 PM)">Night (8 PM - 10 PM)</option>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label for="edit-start-date">Start Date *</label>
+                                <input type="date" id="edit-start-date" class="form-input" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="edit-end-date">End Date *</label>
+                                <input type="date" id="edit-end-date" class="form-input" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="edit-status">Status *</label>
+                                <select id="edit-status" class="form-input" required>
+                                    <option value="active">Active</option>
+                                    <option value="expired">Expired</option>
+                                    <option value="expiring">Expiring Soon</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button class="btn btn-secondary" onclick="closeMemberModal()">Cancel</button>
+                <button class="btn btn-primary" onclick="saveMember()">
+                    <i class="fas fa-save"></i> Save Member
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Request Review Modal -->
+    <div class="modal" id="request-modal">
+        <div class="modal-content large">
+            <div class="modal-header">
+                <h2>Review Membership Request</h2>
+                <button class="modal-close" onclick="closeRequestModal()">&times;</button>
+            </div>
+            <div class="modal-body">
+                <div class="request-detail-grid">
+                    <div class="detail-section">
+                        <h3>Request Information</h3>
+                        <div class="detail-row">
+                            <span class="detail-label">Request ID:</span>
+                            <span class="detail-value" id="req-id">-</span>
+                        </div>
+                        <div class="detail-row">
+                            <span class="detail-label">Member:</span>
+                            <span class="detail-value" id="req-member">-</span>
+                        </div>
+                        <div class="detail-row">
+                            <span class="detail-label">Plan:</span>
+                            <span class="detail-value" id="req-plan">-</span>
+                        </div>
+                        <div class="detail-row">
+                            <span class="detail-label">Timing:</span>
+                            <span class="detail-value" id="req-timing">-</span>
+                        </div>
+                        <div class="detail-row">
+                            <span class="detail-label">Amount:</span>
+                            <span class="detail-value" id="req-amount">-</span>
+                        </div>
+                        <div class="detail-row">
+                            <span class="detail-label">Submitted:</span>
+                            <span class="detail-value" id="req-submitted">-</span>
+                        </div>
+                    </div>
+
+                    <div class="detail-section">
+                        <h3>Payment Screenshot</h3>
+                        <div class="payment-preview" id="payment-preview">
+                            <img src="" alt="Payment Screenshot" id="payment-screenshot">
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button class="btn btn-danger" onclick="rejectRequest()">
+                    <i class="fas fa-times"></i> Reject
+                </button>
+                <button class="btn btn-success" onclick="approveRequest()">
+                    <i class="fas fa-check"></i> Approve
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <script src="../js/membershipManagement.js"></script>
+</body>
+</html>

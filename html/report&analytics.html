@@ -1,0 +1,381 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Reports & Analytics - JNEC Fitness Admin</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="../css/report&analytics.css">
+</head>
+<body>
+    <!-- Menu Toggle for Mobile -->
+    <button class="menu-toggle" id="menu-toggle">
+        <i class="fas fa-bars"></i>
+    </button>
+    
+    <!-- Sidebar Overlay for Mobile -->
+    <div class="sidebar-overlay" id="sidebar-overlay"></div>
+
+    <!-- Sidebar -->
+    <aside class="sidebar" id="sidebar">
+        <div class="logo">
+            <img src="../images/LOGO.png" alt="logo" class="logo-icon">
+            <div class="logo-text">
+                <h2>JNEC Fitness</h2>
+                <p>Admin Panel</p>
+            </div>
+        </div>
+        
+        <ul class="nav-menu">
+            <li class="nav-item">
+                <a href="dashboard.html" class="nav-link">
+                    <i class="fas fa-th-large"></i>
+                    <span>Dashboard</span>
+                </a>
+            </li>
+            <li class="nav-item">
+                <a href="membershipManagement.html" class="nav-link">
+                    <i class="fas fa-users"></i>
+                    <span>Manage Membership</span>
+                </a>
+            </li>
+            <li class="nav-item">
+                <a href="equipment.html" class="nav-link">
+                    <i class="fas fa-dumbbell"></i>
+                    <span>Manage Equipment</span>
+                </a>
+            </li>
+            <li class="nav-item">
+                <a href="schedule.html" class="nav-link">
+                    <i class="far fa-calendar-alt"></i>
+                    <span>Manage Schedule</span>
+                </a>
+            </li>
+            <li class="nav-item">
+                <a href="communication.html" class="nav-link">
+                    <i class="far fa-comment"></i>
+                    <span>Communication</span>
+                </a>
+            </li>
+            <li class="nav-item">
+                <a href="report&analytics.html" class="nav-link active">
+                    <i class="fas fa-chart-bar"></i>
+                    <span>Reports & Analytics</span>
+                </a>
+            </li>
+            <li class="nav-item">
+                <a href="adminmanagement.html" class="nav-link">
+                    <i class="fas fa-user-shield"></i>
+                    <span>Admin Management</span>
+                </a>
+            </li>
+            <li class="nav-item">
+                <a href="setting.html" class="nav-link">
+                    <i class="fas fa-cog"></i>
+                    <span>Settings</span>
+                </a>
+            </li>
+            <li class="logout">
+                <a href="../html/login.html" class="nav-link" data-page="logout">
+                    <i class="fas fa-sign-out-alt"></i>
+                    <span>Logout</span>
+                </a>
+            </li>
+        </ul>
+    </aside>
+
+    <!-- Main Content -->
+    <div class="main-wrapper">
+        <!-- Header -->
+        <header class="header">
+            <h1 class="page-title">Reports & Analytics</h1>
+            
+            <div class="header-right">
+                <div class="search-bar">
+                    <i class="fas fa-search"></i>
+                    <input type="text" placeholder="Search reports...">
+                </div>
+                
+                <div class="header-icons">
+                    <a href="#" class="icon-btn">
+                        <i class="far fa-bell"></i>
+                        <span class="notification-badge">3</span>
+                    </a>
+                </div>
+                
+                <div class="user-profile">
+                    <div class="user-avatar admin">AD</div>
+                    <div class="user-info">
+                        <span class="user-name">Admin User</span>
+                    </div>
+                </div>
+            </div>
+        </header>
+
+        <!-- Content -->
+        <main class="content">
+            <!-- Key Metrics Overview -->
+            <div class="metrics-overview">
+                <div class="metric-card">
+                    <div class="metric-header">
+                        <div class="metric-icon blue">
+                            <i class="fas fa-users"></i>
+                        </div>
+                        <div class="metric-trend positive">
+                            <i class="fas fa-arrow-up"></i>
+                            <span>12%</span>
+                        </div>
+                    </div>
+                    <h3 class="metric-value">10</h3>
+                    <p class="metric-label">Total Members</p>
+                    <div class="metric-footer">
+                        <span class="metric-detail">+2 this month</span>
+                    </div>
+                </div>
+
+                <div class="metric-card">
+                    <div class="metric-header">
+                        <div class="metric-icon green">
+                            <i class="fas fa-money-bill-wave"></i>
+                        </div>
+                        <div class="metric-trend positive">
+                            <i class="fas fa-arrow-up"></i>
+                            <span>15%</span>
+                        </div>
+                    </div>
+                    <h3 class="metric-value">Nu. 4,200</h3>
+                    <p class="metric-label">Monthly Revenue</p>
+                    <div class="metric-footer">
+                        <span class="metric-detail">+Nu. 550 from last month</span>
+                    </div>
+                </div>
+
+                <!-- <div class="metric-card">
+                    <div class="metric-header">
+                        <div class="metric-icon orange">
+                            <i class="fas fa-calendar-check"></i>
+                        </div>
+                        <div class="metric-trend positive">
+                            <i class="fas fa-arrow-up"></i>
+                            <span>8%</span>
+                        </div>
+                    </div>
+                    <h3 class="metric-value">156</h3>
+                    <p class="metric-label">Total Bookings</p>
+                    <div class="metric-footer">
+                        <span class="metric-detail">+12 this week</span>
+                    </div>
+                </div> -->
+
+                <div class="metric-card">
+                    <div class="metric-header">
+                        <div class="metric-icon purple">
+                            <i class="fas fa-percentage"></i>
+                        </div>
+                        <div class="metric-trend neutral">
+                            <i class="fas fa-minus"></i>
+                            <span>0%</span>
+                        </div>
+                    </div>
+                    <h3 class="metric-value">92%</h3>
+                    <p class="metric-label">Attendance Rate</p>
+                    <div class="metric-footer">
+                        <span class="metric-detail">Consistent performance</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Charts Section -->
+            <div class="charts-grid">
+                <!-- Revenue Chart -->
+                <div class="chart-card large">
+                    <div class="chart-header">
+                        <div>
+                            <h3 class="chart-title">Revenue Overview</h3>
+                            <p class="chart-subtitle">Monthly revenue trend</p>
+                        </div>
+                        <div class="chart-legend">
+                            <span class="legend-item">
+                                <span class="legend-color blue"></span>
+                                Revenue
+                            </span>
+                        </div>
+                    </div>
+                    <div class="chart-body">
+                        <canvas id="revenueChart"></canvas>
+                    </div>
+                </div>
+
+                <!-- Membership Growth Chart -->
+                <div class="chart-card">
+                    <div class="chart-header">
+                        <div>
+                            <h3 class="chart-title">Membership Growth</h3>
+                            <p class="chart-subtitle">New members per month</p>
+                        </div>
+                    </div>
+                    <div class="chart-body">
+                        <canvas id="membershipChart"></canvas>
+                    </div>
+                </div>
+            </div>
+
+            <!-- More Analytics -->
+            <div class="analytics-grid">
+                <!-- Slot Utilization -->
+                <div class="analytics-card">
+                    <div class="analytics-header">
+                        <h3 class="analytics-title">
+                            <i class="fas fa-clock"></i>
+                            Slot Utilization
+                        </h3>
+                    </div>
+                    <div class="analytics-body">
+                        <div class="utilization-item">
+                            <div class="utilization-info">
+                                <span class="slot-name">Morning (5-7 AM)</span>
+                                <span class="slot-percentage">40%</span>
+                            </div>
+                            <div class="utilization-bar">
+                                <div class="utilization-fill morning" style="width: 40%"></div>
+                            </div>
+                            <span class="slot-count">4/10 slots booked</span>
+                        </div>
+
+                        <div class="utilization-item">
+                            <div class="utilization-info">
+                                <span class="slot-name">Evening (5-7 PM)</span>
+                                <span class="slot-percentage">70%</span>
+                            </div>
+                            <div class="utilization-bar">
+                                <div class="utilization-fill evening" style="width: 70%"></div>
+                            </div>
+                            <span class="slot-count">7/10 slots booked</span>
+                        </div>
+
+                        <div class="utilization-item">
+                            <div class="utilization-info">
+                                <span class="slot-name">Night (8-10 PM)</span>
+                                <span class="slot-percentage">30%</span>
+                            </div>
+                            <div class="utilization-bar">
+                                <div class="utilization-fill night" style="width: 30%"></div>
+                            </div>
+                            <span class="slot-count">3/10 slots booked</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Equipment Usage -->
+                <div class="analytics-card">
+                    <div class="analytics-header">
+                        <h3 class="analytics-title">
+                            <i class="fas fa-dumbbell"></i>
+                            Top Equipment
+                        </h3>
+                    </div>
+                    <div class="analytics-body">
+                        <div class="equipment-list">
+                            <div class="equipment-item">
+                                <div class="equipment-rank">1</div>
+                                <div class="equipment-info">
+                                    <span class="equipment-name">Treadmill</span>
+                                    <div class="equipment-bar">
+                                        <div class="equipment-fill" style="width: 85%"></div>
+                                    </div>
+                                </div>
+                                <span class="equipment-count">34</span>
+                            </div>
+
+                            <div class="equipment-item">
+                                <div class="equipment-rank">2</div>
+                                <div class="equipment-info">
+                                    <span class="equipment-name">Bench Press</span>
+                                    <div class="equipment-bar">
+                                        <div class="equipment-fill" style="width: 68%"></div>
+                                    </div>
+                                </div>
+                                <span class="equipment-count">27</span>
+                            </div>
+
+                            <div class="equipment-item">
+                                <div class="equipment-rank">3</div>
+                                <div class="equipment-info">
+                                    <span class="equipment-name">Dumbbells</span>
+                                    <div class="equipment-bar">
+                                        <div class="equipment-fill" style="width: 55%"></div>
+                                    </div>
+                                </div>
+                                <span class="equipment-count">22</span>
+                            </div>
+
+                            <div class="equipment-item">
+                                <div class="equipment-rank">4</div>
+                                <div class="equipment-info">
+                                    <span class="equipment-name">Leg Press</span>
+                                    <div class="equipment-bar">
+                                        <div class="equipment-fill" style="width: 42%"></div>
+                                    </div>
+                                </div>
+                                <span class="equipment-count">17</span>
+                            </div>
+
+                            <div class="equipment-item">
+                                <div class="equipment-rank">5</div>
+                                <div class="equipment-info">
+                                    <span class="equipment-name">Rowing Machine</span>
+                                    <div class="equipment-bar">
+                                        <div class="equipment-fill" style="width: 30%"></div>
+                                    </div>
+                                </div>
+                                <span class="equipment-count">12</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Membership Plans Distribution -->
+                <div class="analytics-card">
+                    <div class="analytics-header">
+                        <h3 class="analytics-title">
+                            <i class="fas fa-id-card"></i>
+                            Membership Plans
+                        </h3>
+                    </div>
+                    <div class="analytics-body">
+                        <div class="plan-distribution">
+                            <div class="plan-item">
+                                <div class="plan-label">
+                                    <span class="plan-name">1 Month</span>
+                                    <span class="plan-count">3 members</span>
+                                </div>
+                                <div class="plan-percentage">30%</div>
+                            </div>
+
+                            <div class="plan-item">
+                                <div class="plan-label">
+                                    <span class="plan-name">3 Months</span>
+                                    <span class="plan-count">5 members</span>
+                                </div>
+                                <div class="plan-percentage">50%</div>
+                            </div>
+
+                            <div class="plan-item">
+                                <div class="plan-label">
+                                    <span class="plan-name">6 Months</span>
+                                    <span class="plan-count">2 members</span>
+                                </div>
+                                <div class="plan-percentage">20%</div>
+                            </div>
+                        </div>
+                        <div class="plan-chart" id="planChart"></div>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="../js/report&analytics.js"></script>
+</body>
+</html>

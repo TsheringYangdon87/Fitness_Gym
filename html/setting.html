@@ -1,0 +1,371 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Settings - JNEC Fitness</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="../css/setting.css">
+</head>
+<body>
+    <!-- Menu Button (Hamburger) -->
+    <button class="menu-toggle" id="menu-toggle">
+        <i class="fas fa-bars"></i>
+    </button>
+
+    <!-- Overlay for mobile -->
+    <div class="sidebar-overlay" id="sidebar-overlay"></div>
+
+    <!-- Sidebar -->
+    <aside class="sidebar" id="sidebar">
+        <div class="logo-section">
+            <img src="../images/LOGO.png" alt="logo" class="logo-icon">
+            <div class="logo-text">
+                <h2>JNEC Fitness</h2>
+                <p>Admin Panel</p>
+            </div>
+        </div>
+        <ul class="nav-menu">
+            <li class="nav-item">
+                <a href="dashboard.html" class="nav-link" data-page="dashboard">
+                    <i class="fas fa-th-large"></i>
+                    <span>Dashboard</span>
+                </a>
+            </li>
+            <li class="nav-item">
+                <a href="membershipManagement.html" class="nav-link" data-page="members">
+                    <i class="fas fa-users"></i>
+                    <span>Manage Membership</span>
+                </a>
+            </li>
+            <li class="nav-item">
+                <a href="equipment.html" class="nav-link" data-page="equipment">
+                    <i class="fas fa-dumbbell"></i>
+                    <span>Manage Equipment</span>
+                </a>
+            </li>
+            <li class="nav-item">
+                <a href="schedule.html" class="nav-link" data-page="schedule">
+                    <i class="far fa-calendar-alt"></i>
+                    <span>Manage Schedule</span>
+                </a>
+            </li>
+            <li class="nav-item">
+                <a href="../html/communication.html" class="nav-link" data-page="feedback">
+                    <i class="far fa-comment"></i>
+                    <span>Communication</span>
+                </a>
+            </li>
+            <li class="nav-item">
+                <a href="report&analytics.html" class="nav-link" data-page="reports">
+                    <i class="fas fa-chart-bar"></i>
+                    <span>Reports & Analytics</span>
+                </a>
+            </li>
+            <li class="nav-item">
+                <a href="../html/adminmanagement.html" class="nav-link" data-page="admins">
+                    <i class="fas fa-user-shield"></i>
+                    <span>Admin Management</span>
+                </a>
+            </li>
+            <li class="nav-item">
+                <a href="setting.html" class="nav-link active" data-page="settings">
+                    <i class="fas fa-cog"></i>
+                    <span>Settings</span>
+                </a>
+            </li>
+            <li class="logout">
+                <a href="../html/login.html" class="nav-link" data-page="logout">
+                    <i class="fas fa-sign-out-alt"></i>
+                    <span>Logout</span>
+                </a>
+            </li>
+        </ul>
+    </aside>
+
+    <!-- Top Bar -->
+    <header class="topbar">
+        <div class="page-title">
+            <h1 id="page-title">Admin Settings</h1>
+        </div>
+        <div class="topbar-actions">
+            <div class="search-box">
+                <i class="fas fa-search search-icon"></i>
+                <input type="text" placeholder="Search settings...">
+            </div>
+            <a href="#" class="icon-button" id="notification-btn">
+                <i class="far fa-bell"></i>
+                <span class="notification-badge">3</span>
+            </a>
+            <div class="user-profile" id="user-profile">
+                <div class="user-avatar admin">AD</div>
+                <span class="user-name">Admin User</span>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="main-content">
+        <div class="settings-container">
+            <!-- Admin Account Section -->
+            <div class="settings-section">
+                <div class="section-header">
+                    <i class="fas fa-user-shield"></i>
+                    <h2>Admin Account</h2>
+                </div>
+                <div class="settings-card">
+                    <div class="profile-info">
+                        <div class="profile-avatar-large admin">AD</div>
+                        <div class="profile-details">
+                            <h3>Admin User</h3>
+                            <p>admin@jnec.edu.bt</p>
+                            <span class="admin-role">Super Administrator</span>
+                            <a href="../html/profileedit.html" class="btn-primary" id="editProfileBtn">Edit Profile </a>
+                        </div>
+                    </div>
+                    <div class="settings-item">
+                        <div class="item-info">
+                            <i class="fas fa-lock"></i>
+                            <div>
+                                <h4>Change Password</h4>
+                                <p>Update your password regularly for security</p>
+                            </div>
+                        </div>
+                        <button class="btn-secondary" id="changePasswordBtn">Change</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- System Configuration -->
+            <div class="settings-section">
+                <div class="section-header">
+                    <i class="fas fa-cogs"></i>
+                    <h2>System Configuration</h2>
+                </div>
+                <div class="settings-card">
+                    <div class="settings-item">
+                        <div class="item-info">
+                            <i class="fas fa-calendar-check"></i>
+                            <div>
+                                <h4>Allow Slot Booking</h4>
+                                <p>Enable members to book gym time slots</p>
+                            </div>
+                        </div>
+                        <label class="toggle-switch">
+                            <input type="checkbox" id="allowBooking" checked>
+                            <span class="toggle-slider"></span>
+                        </label>
+                    </div>
+                    <div class="settings-item">
+                        <div class="item-info">
+                            <i class="fas fa-clock"></i>
+                            <div>
+                                <h4>Maximum Slot Capacity</h4>
+                                <p>Set the maximum number of members per time slot</p>
+                            </div>
+                        </div>
+                        <div class="input-group">
+                            <input type="number" id="maxCapacity" value="10" min="1" max="50">
+                            <span class="input-label">members</span>
+                        </div>
+                    </div>
+                    <div class="settings-item">
+                        <div class="item-info">
+                            <i class="fas fa-money-bill-wave"></i>
+                            <div>
+                                <h4>Membership Pricing</h4>
+                                <p>Configure monthly membership fees</p>
+                            </div>
+                        </div>
+                        <button class="btn-secondary" id="pricingBtn">Configure</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Notification Settings -->
+            <div class="settings-section">
+                <div class="section-header">
+                    <i class="fas fa-bell"></i>
+                    <h2>Notification Preferences</h2>
+                </div>
+                <div class="settings-card">
+                    <div class="settings-item">
+                        <div class="item-info">
+                            <i class="fas fa-envelope"></i>
+                            <div>
+                                <h4>Email Notifications</h4>
+                                <p>Receive admin alerts via email</p>
+                            </div>
+                        </div>
+                        <label class="toggle-switch">
+                            <input type="checkbox" id="emailNotif" checked>
+                            <span class="toggle-slider"></span>
+                        </label>
+                    </div>
+                    <div class="settings-item">
+                        <div class="item-info">
+                            <i class="fas fa-user-check"></i>
+                            <div>
+                                <h4>New Member Alerts</h4>
+                                <p>Get notified when new members register</p>
+                            </div>
+                        </div>
+                        <label class="toggle-switch">
+                            <input type="checkbox" id="newMemberAlert" checked>
+                            <span class="toggle-slider"></span>
+                        </label>
+                    </div>
+                    <div class="settings-item">
+                        <div class="item-info">
+                            <i class="fas fa-comment-dots"></i>
+                            <div>
+                                <h4>Feedback Notifications</h4>
+                                <p>Alert when members submit feedback</p>
+                            </div>
+                        </div>
+                        <label class="toggle-switch">
+                            <input type="checkbox" id="feedbackNotif" checked>
+                            <span class="toggle-slider"></span>
+                        </label>
+                    </div>
+                    <div class="settings-item">
+                        <div class="item-info">
+                            <i class="fas fa-exclamation-triangle"></i>
+                            <div>
+                                <h4>Equipment Maintenance Alerts</h4>
+                                <p>Notify about equipment requiring maintenance</p>
+                            </div>
+                        </div>
+                        <label class="toggle-switch">
+                            <input type="checkbox" id="maintenanceAlert" checked>
+                            <span class="toggle-slider"></span>
+                        </label>
+                    </div>
+                </div>
+            </div>
+            <!-- System Information -->
+            <div class="settings-section">
+                <div class="section-header">
+                    <i class="fas fa-info-circle"></i>
+                    <h2>System Information</h2>
+                </div>
+                <div class="settings-card">
+                    <div class="settings-item clickable" id="aboutSystemBtn">
+                        <div class="item-info">
+                            <i class="fas fa-building"></i>
+                            <div>
+                                <h4>About System</h4>
+                                <p>Learn more about JNEC Fitness system</p>
+                            </div>
+                        </div>
+                        <i class="fas fa-chevron-right"></i>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Danger Zone -->
+            <div class="settings-section">
+                <div class="section-header danger">
+                    <i class="fas fa-exclamation-triangle"></i>
+                    <h2>Danger Zone</h2>
+                </div>
+                <div class="settings-card danger-card">
+                    <div class="settings-item">
+                        <div class="item-info">
+                            <i class="fas fa-trash-alt"></i>
+                            <div>
+                                <h4>Delete Inactive Members</h4>
+                                <p>Permanently remove members inactive for 6+ months</p>
+                            </div>
+                        </div>
+                        <button class="btn-danger" id="deleteInactiveBtn">Delete</button>
+                    </div>
+                    <div class="settings-item">
+                        <div class="item-info">
+                            <i class="fas fa-sync-alt"></i>
+                            <div>
+                                <h4>Reset System Settings</h4>
+                                <p>Restore all settings to default values</p>
+                            </div>
+                        </div>
+                        <button class="btn-danger" id="resetSettingsBtn">Reset</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Logout Section -->
+            <!-- <div class="settings-section">
+                <div class="settings-card">
+                    <a href="login.html" class="btn-logout" id="logoutBtn">
+                        <i class="fas fa-sign-out-alt"></i>
+                        Logout
+                    </a>
+                </div>
+            </div> -->
+        </div>
+    </main>
+
+    <!-- Modals -->
+    <!-- Pricing Configuration Modal -->
+    <div class="modal" id="pricingModal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3>Membership Pricing Configuration</h3>
+                <button class="modal-close" data-modal="pricingModal">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+            <div class="modal-body">
+                <div class="pricing-config">
+                    <div class="pricing-item">
+                        <label>1 Month Plan</label>
+                        <div class="input-group">
+                            <span class="currency">Nu.</span>
+                            <input type="number" value="300" min="0">
+                        </div>
+                    </div>
+                    <div class="pricing-item">
+                        <label>3 Months Plan</label>
+                        <div class="input-group">
+                            <span class="currency">Nu.</span>
+                            <input type="number" value="900" min="0">
+                        </div>
+                    </div>
+                    <div class="pricing-item">
+                        <label>6 Months Plan</label>
+                        <div class="input-group">
+                            <span class="currency">Nu.</span>
+                            <input type="number" value="1200" min="0">
+                        </div>
+                    </div>
+                </div>
+                <button class="btn-primary full-width" id="savePricingBtn">Save Changes</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- About System Modal -->
+    <div class="modal" id="aboutSystemModal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3>About JNEC Fitness System</h3>
+                <button class="modal-close" data-modal="aboutSystemModal">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+            <div class="modal-body">
+                <p>JNEC Online Fitness Gym Management System is a comprehensive digital solution for efficient gym administration, enabling automated membership management, equipment tracking, scheduling, and member engagement.</p>
+                <p>Designed in May 2025 as a student project, the system streamlines gym operations and replaces manual workflows, enhancing administrative efficiency and user experience within the college community.</p>
+                <div class="modal-info">
+                    <p><strong>Location:</strong> Jigme Namgyel Engineering College, Dewathang, Bhutan</p>
+                    <p><strong>Admin Email:</strong> admin@jnec.edu.bt</p>
+                    <p><strong>Support:</strong> +975 1778 8329</p>
+                    <p><strong>Version:</strong> 1.0.0 (Build 2025.05)</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="../js/setting.js"></script>
+</body>
+</html>

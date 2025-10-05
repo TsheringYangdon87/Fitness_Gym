@@ -1,0 +1,312 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JNEC Fitness - Notifications & Feedback</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="../css/notification.css">
+</head>
+<body>
+    <!-- Menu Button -->
+    <button class="menu-toggle" id="menu-toggle">
+        <i class="fas fa-bars"></i>
+    </button>
+
+    <!-- Sidebar Overlay -->
+    <div class="sidebar-overlay" id="sidebar-overlay"></div>
+
+    <!-- Sidebar -->
+    <aside class="sidebar" id="sidebar">
+        <div class="logo-section">
+            <img src="../images/LOGO.png" alt="logo" class="logo-icon">
+            <div class="logo-text">
+                <h2>JNEC Fitness</h2>
+                <p>Admin Panel</p>
+            </div>
+        </div>
+        <ul class="nav-menu">
+            <li class="nav-item">
+                <a href="dashboard.html" class="nav-link">
+                    <i class="fas fa-th-large"></i>
+                    <span>Dashboard</span>
+                </a>
+            </li>
+            <li class="nav-item">
+                <a href="#" class="nav-link">
+                    <i class="fas fa-users"></i>
+                    <span>Manage Membership</span>
+                </a>
+            </li>
+            <li class="nav-item">
+                <a href="#" class="nav-link">
+                    <i class="fas fa-dumbbell"></i>
+                    <span>Manage Equipment</span>
+                </a>
+            </li>
+            <li class="nav-item">
+                <a href="#" class="nav-link">
+                    <i class="far fa-calendar-alt"></i>
+                    <span>Manage Schedule</span>
+                </a>
+            </li>
+            <li class="nav-item">
+                <a href="communication.html" class="nav-link">
+                    <i class="far fa-bell"></i>
+                    <span>Communication</span>
+                </a>
+            </li>
+            <li class="nav-item">
+                <a href="#" class="nav-link">
+                    <i class="fas fa-chart-bar"></i>
+                    <span>Reports & Analytics</span>
+                </a>
+            </li>
+            <li class="nav-item">
+                <a href="#" class="nav-link">
+                    <i class="fas fa-cog"></i>
+                    <span>Settings</span>
+                </a>
+            </li>
+        </ul>
+    </aside>
+
+    <!-- Top Bar -->
+    <header class="topbar">
+        <div class="page-title">
+            <h1>Notifications & Feedback</h1>
+        </div>
+        <div class="topbar-actions">
+            <div class="search-box">
+                <i class="fas fa-search search-icon"></i>
+                <input type="text" placeholder="Search feedback..." id="search-feedback">
+            </div>
+            <a href="notification.html" class="icon-button" id="notification-btn">
+                <i class="far fa-bell"></i>
+                <span class="notification-badge">8</span>
+            </a>
+            <div class="user-profile">
+                <div class="user-avatar admin">AD</div>
+                <span class="user-name">Admin User</span>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="main-content">
+        <!-- Stats Grid -->
+        <div class="stats-grid">
+
+            <div class="stat-card">
+                <div class="stat-header">
+                    <div>
+                        <div class="stat-value" id="unread-count">8</div>
+                        <div class="stat-label">Unread Messages</div>
+                        <div class="stat-change">
+                            <i class="fas fa-envelope"></i> Needs attention
+                        </div>
+                    </div>
+                    <div class="stat-icon orange">
+                        <i class="fas fa-envelope-open"></i>
+                    </div>
+                </div>
+            </div>
+
+            <div class="stat-card">
+                <div class="stat-header">
+                    <div>
+                        <div class="stat-value" id="avg-rating">4.6</div>
+                        <div class="stat-label">Average Rating</div>
+                        <div class="stat-change positive">
+                            <i class="fas fa-star"></i> Excellent
+                        </div>
+                    </div>
+                    <div class="stat-icon green">
+                        <i class="fas fa-star"></i>
+                    </div>
+                </div>
+            </div>
+
+            <div class="stat-card">
+                <div class="stat-header">
+                    <div>
+                        <div class="stat-value" id="pending-responses">3</div>
+                        <div class="stat-label">Pending Responses</div>
+                        <div class="stat-change">
+                            <i class="fas fa-clock"></i> Action required
+                        </div>
+                    </div>
+                    <div class="stat-icon purple">
+                        <i class="fas fa-reply"></i>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Filter Tabs -->
+        <div class="filter-tabs">
+            <button class="filter-tab active" data-filter="all">
+                <i class="fas fa-list"></i> All (24)
+            </button>
+            <button class="filter-tab" data-filter="anonymous">
+                <i class="fas fa-user-secret"></i> Anonymous (8)
+            </button>
+            <button class="filter-tab" data-filter="email">
+                <i class="fas fa-envelope"></i> Email (6)
+            </button>
+            <button class="filter-tab" data-filter="webpage">
+                <i class="fas fa-desktop"></i> Web Page (7)
+            </button>
+            <button class="filter-tab" data-filter="app">
+                <i class="fas fa-mobile-alt"></i> App Rating (3)
+            </button>
+        </div>
+
+        <!-- Content Grid -->
+        <div class="content-grid">
+            <!-- Feedback List -->
+            <div class="feedback-section">
+                <div class="card">
+                    <div class="card-header">
+                        <h2 class="card-title">
+                            <i class="fas fa-comments"></i> 
+                            Recent Feedback
+                        </h2>
+                        <div class="header-actions">
+                            <button class="action-btn-small" id="mark-all-read">
+                                <i class="fas fa-check-double"></i> Mark All Read
+                            </button>
+                            <button class="action-btn-small" id="export-feedback">
+                                <i class="fas fa-download"></i> Export
+                            </button>
+                        </div>
+                    </div>
+                    
+                    <div class="feedback-list" id="feedback-list">
+                        <!-- Feedback items will be loaded by JavaScript -->
+                    </div>
+                </div>
+            </div>
+
+            <!-- Sidebar Section -->
+            <div class="sidebar-section">
+                <!-- Quick Stats -->
+                <div class="card">
+                    <div class="card-header">
+                        <h2 class="card-title">Feedback Breakdown</h2>
+                    </div>
+                    <div class="breakdown-list">
+                        <div class="breakdown-item">
+                            <div class="breakdown-label">
+                                <i class="fas fa-star"></i> 5 Stars
+                            </div>
+                            <div class="breakdown-bar">
+                                <div class="breakdown-fill" style="width: 60%"></div>
+                            </div>
+                            <div class="breakdown-count">15</div>
+                        </div>
+                        <div class="breakdown-item">
+                            <div class="breakdown-label">
+                                <i class="fas fa-star"></i> 4 Stars
+                            </div>
+                            <div class="breakdown-bar">
+                                <div class="breakdown-fill" style="width: 25%"></div>
+                            </div>
+                            <div class="breakdown-count">6</div>
+                        </div>
+                        <div class="breakdown-item">
+                            <div class="breakdown-label">
+                                <i class="fas fa-star"></i> 3 Stars
+                            </div>
+                            <div class="breakdown-bar">
+                                <div class="breakdown-fill" style="width: 10%"></div>
+                            </div>
+                            <div class="breakdown-count">2</div>
+                        </div>
+                        <div class="breakdown-item">
+                            <div class="breakdown-label">
+                                <i class="fas fa-star"></i> 2 Stars
+                            </div>
+                            <div class="breakdown-bar">
+                                <div class="breakdown-fill" style="width: 4%"></div>
+                            </div>
+                            <div class="breakdown-count">1</div>
+                        </div>
+                        <div class="breakdown-item">
+                            <div class="breakdown-label">
+                                <i class="fas fa-star"></i> 1 Star
+                            </div>
+                            <div class="breakdown-bar">
+                                <div class="breakdown-fill" style="width: 0%"></div>
+                            </div>
+                            <div class="breakdown-count">0</div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Common Topics -->
+                <div class="card">
+                    <div class="card-header">
+                        <h2 class="card-title">Common Topics</h2>
+                    </div>
+                    <div class="topics-list">
+                        <div class="topic-tag">
+                            <i class="fas fa-dumbbell"></i> Equipment (12)
+                        </div>
+                        <div class="topic-tag">
+                            <i class="fas fa-clock"></i> Schedule (8)
+                        </div>
+                        <div class="topic-tag">
+                            <i class="fas fa-broom"></i> Cleanliness (5)
+                        </div>
+                        <div class="topic-tag">
+                            <i class="fas fa-users"></i> Staff (7)
+                        </div>
+                        <div class="topic-tag">
+                            <i class="fas fa-dollar-sign"></i> Pricing (3)
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Quick Actions -->
+                <div class="card">
+                    <div class="card-header">
+                        <h2 class="card-title">Quick Actions</h2>
+                    </div>
+                    <div class="quick-actions">
+                        <button class="action-btn" id="send-announcement">
+                            <i class="fas fa-bullhorn"></i>
+                            <span>Send Announcement</span>
+                        </button>
+                        <button class="action-btn secondary" id="generate-report">
+                            <i class="fas fa-chart-line"></i>
+                            <span>Generate Report</span>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Feedback Detail Modal -->
+    <div class="modal" id="feedback-modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2 id="modal-title">Feedback Details</h2>
+                <button class="modal-close" id="modal-close">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+            <div class="modal-body" id="modal-body">
+                <!-- Content will be loaded dynamically -->
+            </div>
+            <div class="modal-footer">
+                <button class="btn-secondary" id="modal-cancel">Close</button>
+                <button class="btn-primary" id="modal-reply">Send Reply</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="../js/notification.js"></script>
+</body>
+</html>

@@ -1,0 +1,317 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Equipment Management - JNEC Fitness Admin</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="../css/equipment.css">
+</head>
+<body>
+    <button class="menu-toggle" id="menu-toggle">
+        <i class="fas fa-bars"></i>
+    </button>
+
+    <!-- Overlay for mobile -->
+    <div class="sidebar-overlay" id="sidebar-overlay"></div>
+    
+    <!-- Sidebar -->
+    <aside class="sidebar" id="sidebar">
+        <div class="logo-section">
+            <img src="../images/LOGO.png" alt="logo" class="logo-icon">
+            <div class="logo-text">
+                <h2>JNEC Fitness</h2>
+                <p>Admin Panel</p>
+            </div>
+        </div>
+        <ul class="nav-menu">
+            <li class="nav-item">
+                <a href="dashboard.html" class="nav-link" data-page="dashboard">
+                    <i class="fas fa-th-large"></i>
+                    <span>Dashboard</span>
+                </a>
+            </li>
+            <li class="nav-item">
+                <a href="membershipManagement.html" class="nav-link" data-page="members">
+                    <i class="fas fa-users"></i>
+                    <span>Manage Membership</span>
+                </a>
+            </li>
+            <li class="nav-item">
+                <a href="equipment.html" class="nav-link active" data-page="equipment">
+                    <i class="fas fa-dumbbell"></i>
+                    <span>Manage Equipment</span>
+                </a>
+            </li>
+            <li class="nav-item">
+                <a href="schedule.html" class="nav-link" data-page="schedule">
+                    <i class="far fa-calendar-alt"></i>
+                    <span>Manage Schedule</span>
+                </a>
+            </li>
+            <li class="nav-item">
+                <a href="communication.html" class="nav-link" data-page="feedback">
+                    <i class="far fa-comment"></i>
+                    <span>Communication</span>
+                </a>
+            </li>
+            <li class="nav-item">
+                <a href="report&analytics.html" class="nav-link" data-page="reports">
+                    <i class="fas fa-chart-bar"></i>
+                    <span>Reports & Analytics</span>
+                </a>
+            </li>
+            <li class="nav-item">
+                <a href="adminmanagement.html" class="nav-link" data-page="admins">
+                    <i class="fas fa-user-shield"></i>
+                    <span>Admin Management</span>
+                </a>
+            </li>
+            <li class="nav-item">
+                <a href="setting.html" class="nav-link" data-page="settings">
+                    <i class="fas fa-cog"></i>
+                    <span>Settings</span>
+                </a>
+            </li>
+            <li class="logout">
+                <a href="../html/login.html" class="nav-link" data-page="logout">
+                    <i class="fas fa-sign-out-alt"></i>
+                    <span>Logout</span>
+                </a>
+            </li>
+    </aside>
+
+    <!-- Top Bar -->
+    <header class="topbar">
+        <div class="page-title">
+            <h1>Equipment Management</h1>
+            <p class="page-subtitle">Manage gym equipment and inventory</p>
+        </div>
+        <div class="topbar-actions">
+            <div class="search-box">
+                <i class="fas fa-search search-icon"></i>
+                <input type="text" id="search-input" placeholder="Search equipment...">
+            </div>
+            <a href="#" class="icon-button" id="notification-btn">
+                <i class="far fa-bell"></i>
+                <span class="notification-badge">3</span>
+            </a>
+            <div class="user-profile">
+                <div class="user-avatar admin">AD</div>
+                <span class="user-name">Admin User</span>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="main-content">
+        <!-- Filters and Controls -->
+        <div class="card filters-card">
+            <div class="filters-row">
+                <div class="filter-group">
+                    <label>Category</label>
+                    <select class="filter-select" id="category-filter">
+                        <option value="all">All Categories</option>
+                        <option value="cardio">Cardio</option>
+                        <option value="strength">Strength</option>
+                        <option value="free-weights">Free Weights</option>
+                        <option value="functional">Functional</option>
+                    </select>
+                </div>
+                <div class="filter-group">
+                    <label>Difficulty</label>
+                    <select class="filter-select" id="difficulty-filter">
+                        <option value="all">All Levels</option>
+                        <option value="beginner">Beginner</option>
+                        <option value="intermediate">Intermediate</option>
+                        <option value="advanced">Advanced</option>
+                    </select>
+                </div>
+                <div class="view-toggle">
+                    <button class="view-btn active" data-view="grid" title="Grid View">
+                        <i class="fas fa-th"></i>
+                    </button>
+                    <button class="view-btn" data-view="list" title="List View">
+                        <i class="fas fa-list"></i>
+                    </button>
+                </div>
+                <button class="btn btn-primary" onclick="openAddEquipmentModal()">
+                    <i class="fas fa-plus"></i> Add Equipment
+                </button>
+                <button class="btn btn-secondary" onclick="resetFilters()">
+                    <i class="fas fa-redo"></i> Reset
+                </button>
+            </div>
+        </div>
+
+        <!-- Equipment Grid -->
+        <div class="card">
+            <div class="card-header">
+                <h2 class="card-title">Gym Equipment</h2>
+                <div class="equipment-stats">
+                    <span class="stat-item">
+                        <i class="fas fa-dumbbell"></i>
+                        Total: <span id="total-count">0</span>
+                    </span>
+                    <span class="stat-item">
+                        <i class="fas fa-check-circle"></i>
+                        Available: <span id="available-count">0</span>
+                    </span>
+                </div>
+            </div>
+            <div class="equipment-container">
+                <div class="equipment-grid" id="equipment-grid">
+                    <!-- Equipment items will be loaded here -->
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Equipment Detail Modal -->
+    <div class="modal" id="equipment-modal">
+        <div class="modal-content large">
+            <div class="modal-header">
+                <h2 id="modal-equipment-name">Equipment Details</h2>
+                <button class="modal-close" onclick="closeEquipmentModal()">&times;</button>
+            </div>
+            <div class="modal-body">
+                <div class="equipment-detail-grid">
+                    <div class="detail-section">
+                        <h3>Equipment Information</h3>
+                        <div class="detail-row">
+                            <span class="detail-label">Name:</span>
+                            <span class="detail-value" id="detail-name">-</span>
+                        </div>
+                        <div class="detail-row">
+                            <span class="detail-label">Description:</span>
+                            <span class="detail-value" id="detail-description">-</span>
+                        </div>
+                        <div class="detail-row">
+                            <span class="detail-label">Category:</span>
+                            <span class="detail-value" id="detail-category">-</span>
+                        </div>
+                        <div class="detail-row">
+                            <span class="detail-label">Difficulty:</span>
+                            <span class="detail-value" id="detail-difficulty">-</span>
+                        </div>
+                    </div>
+
+                    <div class="detail-section">
+                        <h3>Targeted Muscles</h3>
+                        <div class="muscle-tags" id="detail-muscles">
+                            <!-- Muscles will be loaded here -->
+                        </div>
+                    </div>
+
+                    <div class="detail-section full-width">
+                        <h3>Equipment Image</h3>
+                        <div class="equipment-image-preview">
+                            <img src="" alt="Equipment Image" id="detail-image">
+                        </div>
+                    </div>
+
+                    <div class="detail-section full-width">
+                        <h3>Usage Instructions</h3>
+                        <ol class="instructions-list" id="detail-instructions">
+                            <!-- Instructions will be loaded here -->
+                        </ol>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button class="btn btn-secondary" onclick="closeEquipmentModal()">Close</button>
+                <button class="btn btn-primary" onclick="editEquipment()">
+                    <i class="fas fa-edit"></i> Edit Equipment
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Add/Edit Equipment Modal -->
+    <div class="modal" id="add-edit-modal">
+        <div class="modal-content large">
+            <div class="modal-header">
+                <h2 id="add-edit-title">Add New Equipment</h2>
+                <button class="modal-close" onclick="closeAddEditModal()">&times;</button>
+            </div>
+            <div class="modal-body">
+                <form id="equipment-form">
+                    <input type="hidden" id="edit-id">
+                    <div class="form-grid">
+                        <div class="form-section">
+                            <h3>Basic Information</h3>
+                            <div class="form-group">
+                                <label for="edit-name">Equipment Name *</label>
+                                <input type="text" id="edit-name" class="form-input" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="edit-description">Description *</label>
+                                <input type="text" id="edit-description" class="form-input" placeholder="e.g., Chest & Triceps primary lift" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="edit-category">Category *</label>
+                                <select id="edit-category" class="form-input" required>
+                                    <option value="">Select Category</option>
+                                    <option value="cardio">Cardio</option>
+                                    <option value="strength">Strength</option>
+                                    <option value="free-weights">Free Weights</option>
+                                    <option value="functional">Functional</option>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label for="edit-difficulty">Difficulty Level *</label>
+                                <select id="edit-difficulty" class="form-input" required>
+                                    <option value="">Select Difficulty</option>
+                                    <option value="beginner">Beginner</option>
+                                    <option value="intermediate">Intermediate</option>
+                                    <option value="advanced">Advanced</option>
+                                    <option value="beginner-to-intermediate">Beginner to Intermediate</option>
+                                    <option value="beginner-to-advanced">Beginner to Advanced</option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <div class="form-section">
+                            <h3>Additional Details</h3>
+                            <div class="form-group">
+                                <label for="edit-image">Image URL *</label>
+                                <input type="text" id="edit-image" class="form-input" placeholder="e.g., ../image/equipment.png" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="edit-muscles">Targeted Muscles</label>
+                                <input type="text" id="edit-muscles" class="form-input" placeholder="e.g., Chest, Triceps, Shoulders">
+                                <small class="form-help">Separate multiple muscles with commas</small>
+                            </div>
+                            <div class="form-group">
+                                <label for="edit-status">Status *</label>
+                                <select id="edit-status" class="form-input" required>
+                                    <option value="available">Available</option>
+                                    <option value="maintenance">Under Maintenance</option>
+                                    <option value="out-of-service">Out of Service</option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <div class="form-section full-width">
+                            <h3>Usage Instructions</h3>
+                            <div class="form-group">
+                                <label for="edit-instructions">Step-by-step Instructions *</label>
+                                <textarea id="edit-instructions" class="form-input" rows="6" required placeholder="Enter each step on a new line..."></textarea>
+                                <small class="form-help">Enter each instruction step on a new line. They will be numbered automatically.</small>
+                            </div>
+                        </div>
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button class="btn btn-secondary" onclick="closeAddEditModal()">Cancel</button>
+                <button class="btn btn-primary" onclick="saveEquipment()">
+                    <i class="fas fa-save"></i> Save Equipment
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <script src="../js/equipment.js"></script>
+</body>
+</html>
